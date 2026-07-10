@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", "Segoe UI", sans-serif;
+  --font-serif: "Source Serif Pro", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f7f5ef;
+  color: #18211f;
+}
+
+@layer components {
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-moss px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-ink focus:outline-none focus:ring-4 focus:ring-moss/20;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-moss hover:text-moss focus:outline-none focus:ring-4 focus:ring-moss/20;
+  }
+
+  .prose-custom {
+    @apply max-w-3xl text-base leading-8;
+    color: rgb(24 33 31 / 78%);
+  }
+
+  .prose-custom h2 {
+    @apply mt-10 font-serif text-3xl font-semibold leading-tight text-ink;
+  }
+
+  .prose-custom h3 {
+    @apply mt-8 text-xl font-semibold text-ink;
+  }
+
+  .prose-custom p {
+    @apply mt-5;
+  }
+
+  .prose-custom ul {
+    @apply mt-5 list-disc space-y-2 pl-6;
+  }
+
+  .prose-custom a {
+    @apply font-semibold text-moss underline underline-offset-4;
+  }
+}
