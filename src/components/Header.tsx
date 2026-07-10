@@ -15,7 +15,7 @@ export function Header() {
       <Container className="flex min-h-16 items-center justify-between gap-4 py-3">
         <Link href="/" className="flex flex-col leading-tight" onClick={() => setOpen(false)}>
           <span className="font-serif text-lg font-semibold text-ink">Dr Jabreel Asghar</span>
-          <span className="text-xs font-medium text-ink/55">AI governance and digital education</span>
+          <span className="text-xs font-medium text-ink/55">AI governance and assessment integrity</span>
         </Link>
         <button
           type="button"

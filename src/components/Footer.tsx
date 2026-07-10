@@ -9,7 +9,8 @@ export function Footer() {
         <div>
           <p className="font-serif text-xl font-semibold">Dr Jabreel Asghar</p>
           <p className="mt-3 max-w-md text-sm leading-6 text-white/70">
-            University lecturer, AI governance researcher, and digital education strategist.
+            University lecturer in English and Academic Communication, researcher in AI governance, and Fellow of
+            Advance HE.
           </p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
