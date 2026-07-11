@@ -1,28 +1,92 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
-import { SearchList } from "@/components/SearchList";
 import { SectionHeader } from "@/components/SectionHeader";
-import { getContent } from "@/lib/content";
+import { getPublicationContent } from "@/lib/content";
+import type { ContentItem } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Publications",
-  description: "Searchable publications, papers, and academic outputs by Dr Jabreel Asghar."
+  description: "Selected publications and ongoing research by Dr Jabreel Asghar."
 };
 
+function itemLink(item: ContentItem): { href: string; label: string } | undefined {
+  if (item.doi) return { href: `https://doi.org/${item.doi}`, label: `DOI: ${item.doi}` };
+  if (item.publisherUrl) return { href: item.publisherUrl, label: "Publisher link" };
+  if (item.link) return { href: item.link, label: "Publication link" };
+  if (item.externalUrl) return { href: item.externalUrl, label: "Publication link" };
+
+  return undefined;
+}
+
+function PublicationCard({ item, variant = "article" }: { item: ContentItem; variant?: "article" | "book" | "progress" }) {
+  const link = itemLink(item);
+  const meta =
+    variant === "book"
+      ? [item.format, item.publisher, item.year]
+      : variant === "progress"
+        ? [item.status, item.year]
+        : [item.status, item.year];
+
+  return (
+    <article className="rounded-md border border-line bg-white p-6 shadow-sm">
+      <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-brass">
+        {meta.filter(Boolean).map((value) => (
+          <span key={value}>{value}</span>
+        ))}
+      </div>
+      <h2 className="mt-3 text-2xl font-semibold text-ink">{item.title}</h2>
+      {item.journal ? <p className="mt-2 text-sm font-semibold text-moss">{item.journal}</p> : null}
+      {item.summary ? <p className="mt-4 text-sm leading-6 text-ink/70">{item.summary}</p> : null}
+      {link ? (
+        <a className="mt-5 inline-block text-sm font-semibold text-moss hover:text-ink" href={link.href}>
+          {link.label}
+        </a>
+      ) : null}
+    </article>
+  );
+}
+
+function PublicationSection({
+  title,
+  items,
+  variant = "article"
+}: {
+  title: string;
+  items: ContentItem[];
+  variant?: "article" | "book" | "progress";
+}) {
+  if (!items.length) return null;
+
+  return (
+    <section className="mt-12">
+      <h2 className="font-serif text-3xl font-semibold text-ink">{title}</h2>
+      <div className="mt-5 grid gap-5">
+        {items.map((item) => (
+          <PublicationCard key={item.slug} item={item} variant={variant} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function PublicationsPage() {
-  const publications = getContent("publication");
+  const journalArticles = getPublicationContent("journal-articles");
+  const books = getPublicationContent("books");
+  const bookReviews = getPublicationContent("book-reviews");
+  const researchInProgress = getPublicationContent("research-in-progress");
 
   return (
     <section className="bg-paper">
       <Container className="py-14">
         <SectionHeader
           eyebrow="Publications"
-          title="Research outputs and scholarly writing"
-          summary="A searchable index for articles, conference papers, reports, and works in progress."
+          title="Publications"
+          summary="This page brings together selected publications and ongoing research relating to higher education, AI governance, assessment integrity, academic communication, and discourse analysis. The work reflects both published work and ongoing research that examines how emerging technologies are reshaping teaching, learning, assessment, and educational quality. Publications are presented with full bibliographic details and, where available, links to the published version, DOI, or publisher's webpage."
         />
-        <div className="mt-8">
-          <SearchList items={publications} basePath="/publications" placeholder="Search publications by title, venue, or tag" />
-        </div>
+        <PublicationSection title="Journal Articles" items={journalArticles} />
+        <PublicationSection title="Books" items={books} variant="book" />
+        <PublicationSection title="Book Reviews" items={bookReviews} />
+        <PublicationSection title="Research in Progress" items={researchInProgress} variant="progress" />
       </Container>
     </section>
   );
