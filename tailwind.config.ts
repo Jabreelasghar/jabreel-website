@@ -5,12 +5,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#18211f",
-        paper: "#f7f5ef",
-        line: "#d8d4c7",
-        moss: "#315c51",
-        brass: "#9b6b35",
-        oxford: "#26394f"
+        ink: "#102033",
+        paper: "#f8f7f3",
+        line: "#d9dee3",
+        moss: "#2f6f6a",
+        brass: "#6f7f8f",
+        oxford: "#0b1726",
+        slate: "#536273",
+        mist: "#eef2f4",
+        ivory: "#fffdf8"
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Arial", "sans-serif"],

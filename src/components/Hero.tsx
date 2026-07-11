@@ -3,19 +3,28 @@ import { Container } from "./Container";
 
 export function Hero() {
   return (
-    <section className="border-b border-line bg-paper">
-      <Container className="grid gap-10 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brass">Dr Jabreel Asghar</p>
-          <h1 className="mt-5 max-w-4xl font-serif text-5xl font-semibold leading-tight text-ink sm:text-6xl">
-            Advancing Responsible AI, Assessment Integrity, and Quality in Higher Education
+    <section className="border-b border-line bg-ivory">
+      <Container className="grid gap-8 py-9 lg:grid-cols-[minmax(0,3fr)_minmax(22rem,2fr)] lg:items-center lg:py-10">
+        <div className="max-w-[720px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-moss">Dr Jabreel Asghar</p>
+          <h1 className="mt-4 font-serif text-[2rem] font-semibold leading-tight text-oxford sm:text-[2.65rem] lg:text-[2.65rem]">
+            Researching Responsible AI, Assessment Integrity, and Educational Quality in Higher Education
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/72">
+          <p className="mt-4 max-w-2xl text-base leading-7 text-slate">
             I research how higher education can integrate generative AI while preserving academic integrity, trustworthy
             assessment, and educational quality. My work combines AI governance, assessment design, discourse analysis,
             and digital education to develop practical frameworks that support responsible institutional practice.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-4 flex max-w-2xl flex-wrap gap-x-4 gap-y-2 text-xs font-medium uppercase tracking-[0.1em] text-slate">
+            {["University Lecturer", "Fellow of Advance HE (FHEA)", "Applied Linguistics", "AI Governance", "Assessment Integrity"].map(
+              (item) => (
+                <span key={item} className="before:mr-2 before:text-moss before:content-['•']">
+                  {item}
+                </span>
+              )
+            )}
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
             <Link className="button-primary" href="/publications">
               Explore My Research
             </Link>
@@ -24,8 +33,9 @@ export function Hero() {
             </Link>
           </div>
         </div>
-        <div className="rounded-md border border-line bg-white p-5 shadow-sm">
-          <div className="grid grid-cols-2 gap-3">
+        <aside className="border-l border-line bg-paper p-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate">Research Priorities</p>
+          <div className="mt-3 divide-y divide-line">
             {[
               ["AI Governance", "Developing practical frameworks for the responsible integration of generative AI in higher education."],
               [
@@ -40,17 +50,20 @@ export function Hero() {
                 "Research & Evidence",
                 "Investigating AI-assisted academic writing, discourse, and higher education policy through applied research."
               ]
-            ].map(([title, text]) => (
-              <div key={title} className="min-h-36 rounded-sm border border-line bg-paper p-4">
-                <p className="font-serif text-2xl font-semibold text-moss">{title}</p>
-                <p className="mt-3 text-sm leading-6 text-ink/68">{text}</p>
+            ].map(([title, text], index) => (
+              <div key={title} className="grid grid-cols-[2.1rem_1fr] gap-3 py-2.5 first:pt-0 last:pb-0">
+                <span className="pt-0.5 text-xs font-semibold text-moss">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <p className="text-[15px] font-semibold leading-5 text-oxford">{title}</p>
+                  <p className="mt-0.5 text-sm leading-5 text-slate">{text}</p>
+                </div>
               </div>
             ))}
           </div>
-          <p className="mt-5 border-t border-line pt-4 text-sm leading-6 text-ink/65">
+          <p className="mt-3 border-t border-line pt-3 text-sm leading-6 text-slate">
             Research at the intersection of AI governance, assessment integrity, and higher education.
           </p>
-        </div>
+        </aside>
       </Container>
     </section>
   );

@@ -5,6 +5,15 @@
 :root {
   --font-sans: "Inter", "Segoe UI", sans-serif;
   --font-serif: "Source Serif Pro", Georgia, serif;
+  --color-ink: #102033;
+  --color-oxford: #0b1726;
+  --color-paper: #f8f7f3;
+  --color-ivory: #fffdf8;
+  --color-mist: #eef2f4;
+  --color-line: #d9dee3;
+  --color-slate: #536273;
+  --color-accent: #2f6f6a;
+  --container-readable: 72rem;
 }
 
 html {
@@ -12,26 +21,44 @@ html {
 }
 
 body {
-  background: #f7f5ef;
-  color: #18211f;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgb(47 111 106 / 18%);
+}
+
+a,
+button,
+input {
+  @apply focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-moss/20;
 }
 
 @layer components {
   .button-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-moss px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-ink focus:outline-none focus:ring-4 focus:ring-moss/20;
+    @apply inline-flex items-center justify-center rounded-[3px] border border-moss bg-moss px-3.5 py-2 text-sm font-medium text-white transition hover:border-oxford hover:bg-oxford focus-visible:ring-4 focus-visible:ring-moss/20;
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-moss hover:text-moss focus:outline-none focus:ring-4 focus:ring-moss/20;
+    @apply inline-flex items-center justify-center rounded-[3px] border border-line bg-transparent px-3.5 py-2 text-sm font-medium text-ink transition hover:border-moss hover:text-moss focus-visible:ring-4 focus-visible:ring-moss/20;
+  }
+
+  .research-card {
+    @apply rounded-sm border border-line bg-ivory p-5 transition hover:border-moss/50;
+  }
+
+  .section-band {
+    @apply border-y border-line bg-paper;
   }
 
   .prose-custom {
-    @apply max-w-3xl text-base leading-8;
-    color: rgb(24 33 31 / 78%);
+    @apply max-w-3xl text-base leading-7 text-slate;
   }
 
   .prose-custom h2 {
-    @apply mt-10 font-serif text-3xl font-semibold leading-tight text-ink;
+    @apply mt-10 border-t border-line pt-7 font-serif text-3xl font-semibold leading-tight text-ink;
   }
 
   .prose-custom h3 {
@@ -39,7 +66,7 @@ body {
   }
 
   .prose-custom p {
-    @apply mt-5;
+    @apply mt-4;
   }
 
   .prose-custom ul {

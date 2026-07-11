@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function AiGovernancePage() {
   return (
     <>
-      <section className="border-b border-line bg-paper">
+      <section className="border-b border-line bg-ivory">
         <Container className="py-14">
           <SectionHeader
             eyebrow="AI Governance"
@@ -20,11 +20,11 @@ export default function AiGovernancePage() {
           />
         </Container>
       </section>
-      <section className="bg-white">
+      <section className="bg-paper">
         <Container className="grid gap-8 py-14 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <h2 className="font-serif text-3xl font-semibold text-ink">Area of work</h2>
-            <p className="mt-4 leading-7 text-ink/70">
+            <h2 className="font-serif text-3xl font-semibold text-oxford">Area of work</h2>
+            <p className="mt-4 leading-7 text-slate">
               This area brings together research on responsible AI adoption, academic integrity, and institutional
               governance in higher education. Future updates may include related publications, practical guides,
               downloadable materials, and further reading.
@@ -37,9 +37,9 @@ export default function AiGovernancePage() {
               ["Academic integrity", "Connecting AI governance with authorship, transparency, and trustworthy assessment."],
               ["Evidence-informed practice", "Using research and teaching experience to inform practical frameworks."]
             ].map(([title, text]) => (
-              <div key={title} className="rounded-md border border-line bg-paper p-5">
-                <h3 className="font-semibold text-ink">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-ink/68">{text}</p>
+              <div key={title} className="rounded-sm border border-line bg-ivory p-5">
+                <h3 className="font-semibold text-oxford">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate">{text}</p>
               </div>
             ))}
           </div>

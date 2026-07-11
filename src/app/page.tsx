@@ -2,9 +2,20 @@ import { CTA } from "@/components/CTA";
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
+import { getFeatured } from "@/lib/content";
 import Link from "next/link";
 
 export default function HomePage() {
+  const featuredPublications = getFeatured("publication", 3).filter((item) => item.featured);
+  const publicationMeta = (item: (typeof featuredPublications)[number]) =>
+    [
+      ["Status", item.status],
+      ["Type", "Journal Article"],
+      ["Journal", item.journal],
+      ["Year", item.year],
+      ["DOI", item.doi]
+    ].filter((entry): entry is [string, string] => Boolean(entry[1]));
+
   const resources = [
     {
       title: "Responsible AI in Higher Education",
@@ -48,8 +59,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <section className="bg-white">
-        <Container className="grid gap-8 py-14 md:grid-cols-3">
+      <section className="border-b border-line bg-paper">
+        <Container className="py-8">
+          <div className="grid border-y border-line md:grid-cols-3">
           {[
             [
               "Higher Education Teaching",
@@ -64,27 +76,99 @@ export default function HomePage() {
               "Designing authentic assessments, rubrics, and quality assurance practices that strengthen learning and evaluation."
             ]
           ].map(([title, text]) => (
-            <div key={title} className="border-l-2 border-moss pl-5">
-              <h2 className="font-serif text-2xl font-semibold text-ink">{title}</h2>
-              <p className="mt-3 text-sm leading-6 text-ink/70">{text}</p>
+            <div key={title} className="py-5 md:border-r md:border-line md:px-6 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
+              <h2 className="text-base font-semibold text-oxford">{title}</h2>
+              <p className="mt-2 text-sm leading-6 text-slate">{text}</p>
             </div>
           ))}
+          </div>
         </Container>
       </section>
-      <section className="border-y border-line bg-paper">
-        <Container className="py-14">
+      {featuredPublications.length ? (
+        <section className="border-b border-line bg-oxford text-white">
+          <Container className="py-10">
+            <div className="max-w-3xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/65">
+                Featured Publications
+              </p>
+              <h2 className="font-serif text-3xl font-semibold leading-tight text-white sm:text-4xl">
+                Selected Research Outputs
+              </h2>
+              <p className="mt-4 text-base leading-7 text-white/70">
+                Recent and selected publications drawn from verified publication records.
+              </p>
+            </div>
+            <div className="mt-8 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+              {featuredPublications.slice(0, 1).map((item) => {
+                const link = item.doi ? `https://doi.org/${item.doi}` : item.publisherUrl;
+
+                return (
+                  <article key={item.slug} className="border-l-4 border-moss bg-white/5 p-6">
+                    <div className="flex flex-wrap gap-2 text-xs text-white/76">
+                      {publicationMeta(item).map(([label, value]) => (
+                        <span key={label} className="border border-white/20 px-2 py-1">
+                          <span className="font-semibold uppercase tracking-[0.12em] text-white/50">{label}</span>{" "}
+                          <span className="font-medium">{value}</span>
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-white">{item.title}</h3>
+                    {item.journal ? <p className="mt-4 text-sm font-semibold text-white/75">{item.journal}</p> : null}
+                    {item.summary ? <p className="mt-4 text-sm leading-6 text-white/70">{item.summary}</p> : null}
+                    {link ? (
+                      <a className="mt-6 inline-block text-sm font-semibold text-white underline underline-offset-4 hover:text-white/75" href={link}>
+                        {item.doi ? `DOI: ${item.doi}` : "Publisher link"}
+                      </a>
+                    ) : null}
+                  </article>
+                );
+              })}
+              <div className="divide-y divide-white/15">
+                {featuredPublications.slice(1).map((item) => {
+                  const link = item.doi ? `https://doi.org/${item.doi}` : item.publisherUrl;
+
+                  return (
+                    <article key={item.slug} className="py-5 first:pt-0 last:pb-0">
+                      <div className="flex flex-wrap gap-2 text-xs text-white/68">
+                        {publicationMeta(item).map(([label, value]) => (
+                          <span key={label} className="border border-white/20 px-2 py-1">
+                            <span className="font-semibold uppercase tracking-[0.12em] text-white/45">{label}</span>{" "}
+                            <span className="font-medium">{value}</span>
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="mt-2 text-lg font-semibold leading-snug text-white">{item.title}</h3>
+                      {item.journal ? <p className="mt-2 text-sm text-white/70">{item.journal}</p> : null}
+                      {item.summary ? <p className="mt-3 text-sm leading-6 text-white/65">{item.summary}</p> : null}
+                      {link ? (
+                        <a className="mt-3 inline-block text-sm font-semibold text-white underline underline-offset-4 hover:text-white/75" href={link}>
+                          {item.doi ? `DOI: ${item.doi}` : "Publisher link"}
+                        </a>
+                      ) : null}
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </Container>
+        </section>
+      ) : null}
+      <section className="border-b border-line bg-ivory">
+        <Container className="grid gap-10 py-10 lg:grid-cols-[0.75fr_1.25fr]">
           <SectionHeader
             eyebrow="Research Resources"
             title="Frameworks, Guides, and Practical Resources"
             summary="This section brings together practical resources developed through my research and teaching to support responsible AI adoption, assessment integrity, and quality enhancement in higher education. Additional resources will be added as they become publicly available."
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {resources.map((item) => (
-              <article key={item.title} className="rounded-md border border-line bg-white p-5 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brass">Overview</p>
-                <h3 className="mt-3 text-xl font-semibold text-ink">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-ink/70">{item.summary}</p>
-                <Link className="button-primary mt-5" href={item.href}>
+          <div className="divide-y divide-line border-y border-line">
+            {resources.map((item, index) => (
+              <article key={item.title} className="grid gap-4 py-4 sm:grid-cols-[3rem_1fr_auto] sm:items-start">
+                <span className="text-sm font-semibold text-moss">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3 className="text-xl font-semibold text-oxford">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate">{item.summary}</p>
+                </div>
+                <Link className="text-sm font-semibold text-moss hover:text-oxford" href={item.href}>
                   {item.action}
                 </Link>
               </article>
@@ -92,27 +176,29 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-      <section className="bg-white">
-        <Container className="py-14">
+      <section className="bg-paper">
+        <Container className="grid gap-10 py-10 lg:grid-cols-[0.7fr_1.3fr]">
           <SectionHeader
             eyebrow="Research Insights"
             title="Ideas, Research, and Commentary"
             summary="Reflections on AI governance, assessment integrity, academic writing, and higher education informed by research, teaching, and professional practice."
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {insights.map((item) => (
+          <div className="divide-y divide-line border-y border-line">
+            {insights.map((item, index) => (
               <article
                 key={item.title}
-                className="flex h-full flex-col rounded-md border border-line bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                className="grid gap-3 py-4 sm:grid-cols-[7rem_1fr]"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brass">Featured Topic</p>
-                <h3 className="mt-4 text-xl font-semibold text-ink">
-                  <Link href={item.href}>{item.title}</Link>
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-6 text-ink/70">{item.summary}</p>
-                <Link className="mt-5 text-sm font-semibold text-moss hover:text-ink" href={item.href}>
-                  View topic
-                </Link>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-moss">Insight {index + 1}</p>
+                <div>
+                  <h3 className="text-xl font-semibold text-oxford">
+                    <Link href={item.href}>{item.title}</Link>
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate">{item.summary}</p>
+                  <Link className="mt-3 inline-block text-sm font-semibold text-moss hover:text-oxford" href={item.href}>
+                    View topic
+                  </Link>
+                </div>
               </article>
             ))}
           </div>

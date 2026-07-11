@@ -28,17 +28,17 @@ function PublicationCard({ item, variant = "article" }: { item: ContentItem; var
         : [item.status, item.year];
 
   return (
-    <article className="rounded-md border border-line bg-white p-6 shadow-sm">
-      <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-brass">
+    <article className="rounded-sm border border-line bg-ivory p-6">
+      <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate">
         {meta.filter(Boolean).map((value) => (
           <span key={value}>{value}</span>
         ))}
       </div>
-      <h2 className="mt-3 text-2xl font-semibold text-ink">{item.title}</h2>
+      <h2 className="mt-3 text-2xl font-semibold text-oxford">{item.title}</h2>
       {item.journal ? <p className="mt-2 text-sm font-semibold text-moss">{item.journal}</p> : null}
-      {item.summary ? <p className="mt-4 text-sm leading-6 text-ink/70">{item.summary}</p> : null}
+      {item.summary ? <p className="mt-4 text-sm leading-6 text-slate">{item.summary}</p> : null}
       {link ? (
-        <a className="mt-5 inline-block text-sm font-semibold text-moss hover:text-ink" href={link.href}>
+        <a className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href={link.href}>
           {link.label}
         </a>
       ) : null}
@@ -58,8 +58,8 @@ function PublicationSection({
   if (!items.length) return null;
 
   return (
-    <section className="mt-12">
-      <h2 className="font-serif text-3xl font-semibold text-ink">{title}</h2>
+    <section className="mt-12 border-t border-line pt-8">
+      <h2 className="font-serif text-3xl font-semibold text-oxford">{title}</h2>
       <div className="mt-5 grid gap-5">
         {items.map((item) => (
           <PublicationCard key={item.slug} item={item} variant={variant} />

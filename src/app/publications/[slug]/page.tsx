@@ -41,9 +41,11 @@ export default async function PublicationDetailPage({ params }: Params) {
   return (
     <article className="bg-paper">
       <Container className="py-14">
-        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brass">{label}</p>
-        <h1 className="mt-3 max-w-4xl font-serif text-5xl font-semibold text-ink">{item.title}</h1>
-        {item.summary ? <p className="mt-5 max-w-3xl text-lg leading-8 text-ink/70">{item.summary}</p> : null}
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-moss">{label}</p>
+        <h1 className="mt-3 max-w-4xl font-serif text-4xl font-semibold leading-tight text-oxford sm:text-5xl">
+          {item.title}
+        </h1>
+        {item.summary ? <p className="mt-5 max-w-3xl text-lg leading-8 text-slate">{item.summary}</p> : null}
         {link ? (
           <a className="button-primary mt-7" href={link.href}>
             {link.label}
