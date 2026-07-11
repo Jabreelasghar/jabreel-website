@@ -14,23 +14,60 @@ export default function AboutPage() {
         <SectionHeader
           eyebrow="About"
           title="Dr Jabreel Asghar"
-          summary="University lecturer, AI governance researcher, and digital education strategist."
+          summary="University lecturer, researcher, and assessment specialist."
         />
         <div className="prose-custom">
           <p>
-            This placeholder biography positions Dr Asghar as an academic working across AI governance, assessment
-            integrity, and digital education strategy. Replace it with a fuller biography, institutional affiliation,
-            qualifications, and current research priorities.
+            Dr Jabreel Asghar is a university lecturer, researcher, and assessment specialist whose work brings together
+            higher education, academic communication, and responsible AI use. His research focuses on AI governance in
+            higher education, assessment integrity, academic writing, and educational quality, with particular attention
+            to how generative AI is reshaping authorship, transparency, and trustworthy evaluation.
+          </p>
+          <p>
+            As a Fellow of Advance HE (FHEA), he combines research with sustained academic practice in teaching,
+            curriculum, assessment design, and student learning. His work is concerned with the practical and
+            institutional questions that arise when universities integrate AI into teaching and assessment while seeking
+            to preserve academic standards and meaningful learning.
+          </p>
+          <p>
+            This website presents his research, publications, teaching, and practical work in AI governance, assessment
+            integrity, and higher education quality.
           </p>
           <h2>Research Focus</h2>
           <p>
-            His work can be presented around responsible AI adoption, higher education policy, learning design, and the
-            practical conditions that help universities use emerging technologies with credibility.
+            Dr Asghar's research examines how generative AI is reshaping higher education, with particular emphasis on
+            AI governance, assessment integrity, academic writing, and educational quality. His work considers how
+            universities can integrate AI responsibly while maintaining transparency, academic standards, and trustworthy
+            approaches to teaching and assessment.
           </p>
-          <h2>Professional Profile</h2>
           <p>
-            Add selected appointments, research collaborations, editorial roles, committee memberships, and external
-            advisory work here.
+            A central strand of his research concerns assessment integrity, including authentic assessment design,
+            student authorship, and the responsible evaluation of learning in AI-assisted educational contexts. His work
+            on AI-assisted academic writing draws on discourse analysis to examine how emerging technologies are
+            changing academic communication, knowledge construction, and expectations of scholarly authorship.
+          </p>
+          <p>
+            Across these interconnected areas, his research seeks to develop evidence-informed approaches that enable
+            higher education institutions to adopt AI responsibly while preserving the integrity, quality, and
+            educational purpose of assessment and academic practice.
+          </p>
+          <h2>Teaching and Academic Practice</h2>
+          <p>
+            Dr Asghar teaches English and Academic Communication in higher education, with a particular interest in
+            academic writing, critical thinking, and the development of students' communication skills. His teaching is
+            informed by evidence-based approaches to curriculum design, assessment, and learning, with an emphasis on
+            helping students meet the expectations of academic study.
+          </p>
+          <p>
+            His academic practice extends beyond classroom teaching to the design of curricula, assessments, and
+            learning activities that promote clarity, authenticity, and meaningful evaluation. He is particularly
+            interested in how assessment and academic communication can evolve in response to generative AI while
+            maintaining educational standards and supporting student learning.
+          </p>
+          <p>
+            Through both teaching and assessment practice, he encourages responsible engagement with AI as a learning
+            tool, emphasising transparency, academic integrity, and the development of students' independent academic
+            judgement.
           </p>
         </div>
       </Container>
