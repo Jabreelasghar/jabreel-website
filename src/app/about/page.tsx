@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 
@@ -81,6 +82,15 @@ export default function AboutPage() {
             </p>
           </div>
           <aside className="bg-mist/55 px-5 py-6 lg:sticky lg:top-24">
+            <Image
+              src="/images/jabreel-asghar-about.png"
+              alt="Dr Jabreel Asghar in front of academic bookshelves"
+              width={1408}
+              height={1117}
+              sizes="(min-width: 1024px) 22rem, 100vw"
+              className="mb-5 h-auto w-full border border-line"
+              priority
+            />
             <p className="border-b border-line pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-moss">Profile</p>
             <div className="divide-y divide-line">
               {profileItems.map(([label, value]) => (
