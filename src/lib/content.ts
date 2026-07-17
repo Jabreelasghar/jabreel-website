@@ -69,6 +69,7 @@ function parseFrontMatter(raw: string): Omit<ContentItem, "slug" | "body"> & { b
     type: data.type ? String(data.type) : undefined,
     draft: Boolean(data.draft),
     readingTime: data.readingTime ? String(data.readingTime) : undefined,
+    pdf: data.pdf ? String(data.pdf) : undefined,
     language: data.language ? String(data.language) : undefined,
     genre: data.genre ? String(data.genre) : undefined,
     venue: data.venue ? String(data.venue) : undefined,
@@ -155,6 +156,35 @@ export function getContent(kind: ContentKind): ContentItem[] {
 
 export function getContentItem(kind: ContentKind, slug: string): ContentItem | undefined {
   return getContent(kind).find((item) => item.slug === slug);
+}
+
+export function getDraftContent(kind: ContentKind): ContentItem[] {
+  const dir = path.join(contentRoot, contentDirs[kind]);
+
+  if (!fs.existsSync(dir)) return [];
+
+  const files: ContentFile[] =
+    kind === "publication"
+      ? publicationFiles(dir)
+      : fs
+          .readdirSync(dir)
+          .filter((file) => file !== "README.md" && (file.endsWith(".md") || file.endsWith(".mdx")))
+          .map((file) => ({ file }));
+
+  return sortContent(
+    files
+      .map(({ file, category }) => {
+        const raw = fs.readFileSync(path.join(dir, file), "utf8");
+        const parsed = parseFrontMatter(raw);
+
+        return {
+          slug: path.basename(file).replace(/\.mdx?$/, ""),
+          category,
+          ...parsed
+        };
+      })
+      .filter((item) => item.draft)
+  );
 }
 
 export function getPublicationContent(category: PublicationCategory): ContentItem[] {

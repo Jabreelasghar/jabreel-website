@@ -13,6 +13,7 @@ export type ContentItem = {
   type?: string;
   draft?: boolean;
   readingTime?: string;
+  pdf?: string;
   language?: string;
   genre?: string;
   venue?: string;
