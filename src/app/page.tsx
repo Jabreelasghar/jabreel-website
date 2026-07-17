@@ -7,16 +7,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   const featuredPublications = getFeatured("publication", 3).filter((item) => item.featured);
-  const latestInsight = getContent("insight")[0];
   const creativeWriting = getContent("creativeWriting");
-  const formatDate = (date?: string) =>
-    date
-      ? new Intl.DateTimeFormat("en", {
-          day: "numeric",
-          month: "long",
-          year: "numeric"
-        }).format(new Date(`${date}T00:00:00`))
-      : undefined;
   const publicationMeta = (item: (typeof featuredPublications)[number]) =>
     [
       ["Status", item.status],
@@ -75,36 +66,24 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-      {latestInsight ? (
-        <section className="border-b border-line bg-ivory">
-          <Container className="grid gap-8 py-10 lg:grid-cols-[0.65fr_1.35fr] lg:items-start">
-            <SectionHeader
-              eyebrow="Latest Insight"
-              title="Recent Editorial Commentary"
-              summary="Research-informed commentary on AI governance, assessment integrity, academic writing, and higher education practice."
-            />
-            <article className="border-y border-line py-5">
-              <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate">
-                {latestInsight.category ? <span>{latestInsight.category}</span> : null}
-                {latestInsight.date ? <span>{formatDate(latestInsight.date)}</span> : null}
-                {latestInsight.readingTime ? <span>{latestInsight.readingTime}</span> : null}
-              </div>
-              <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-oxford">
-                <Link href={`/insights/${latestInsight.slug}`}>{latestInsight.title}</Link>
-              </h2>
-              {latestInsight.summary ? <p className="mt-4 max-w-3xl text-sm leading-6 text-slate">{latestInsight.summary}</p> : null}
-              <div className="mt-5 flex flex-wrap gap-5 text-sm font-semibold">
-                <Link className="text-moss hover:text-oxford" href={`/insights/${latestInsight.slug}`}>
-                  Read insight
-                </Link>
-                <Link className="text-moss hover:text-oxford" href="/insights">
-                  View all insights
-                </Link>
-              </div>
-            </article>
-          </Container>
-        </section>
-      ) : null}
+      <section className="border-b border-line bg-ivory">
+        <Container className="grid gap-8 py-10 lg:grid-cols-[0.65fr_1.35fr] lg:items-start">
+          <SectionHeader
+            eyebrow="Insights"
+            title="Editorials and Commentary"
+            summary="This section will publish evidence-informed editorials and commentary on AI in higher education, assessment integrity, academic writing, university teaching, and educational policy."
+          />
+          <article className="border-y border-line py-5">
+            <p className="max-w-3xl text-sm leading-6 text-slate">
+              The first editorial will be published soon. Planned topics are listed in the Insights section as
+              forthcoming editorials until complete versions are approved for publication.
+            </p>
+            <Link className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/insights">
+              View Insights
+            </Link>
+          </article>
+        </Container>
+      </section>
       {featuredPublications.length ? (
         <section className="border-b border-line bg-oxford text-white">
           <Container className="py-10">
