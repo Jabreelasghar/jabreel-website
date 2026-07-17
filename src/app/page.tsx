@@ -194,9 +194,17 @@ export default function HomePage() {
                   <article key={item.slug} className="py-4" dir={item.language === "Urdu" ? "rtl" : "ltr"}>
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-moss">{item.genre ?? "Creative Writing"}</p>
                     <h3 className="mt-2 text-xl font-semibold text-oxford">{item.title}</h3>
+                    {item.romanizedTitle ? (
+                      <p className="mt-1 text-sm font-semibold text-slate" dir="ltr">
+                        {item.romanizedTitle}
+                      </p>
+                    ) : null}
                     <p className="mt-2 text-sm leading-6 text-slate">
-                      {[item.year ?? item.date, item.publisher].filter(Boolean).join(" · ")}
+                      {[item.year ?? item.date, item.status].filter(Boolean).join(" · ")}
                     </p>
+                    <Link className="mt-3 inline-block text-sm font-semibold text-moss hover:text-oxford" href={`/creative-writing/${item.slug}`}>
+                      Read book
+                    </Link>
                   </article>
                 ))}
               </div>

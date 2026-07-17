@@ -70,6 +70,7 @@ function parseFrontMatter(raw: string): Omit<ContentItem, "slug" | "body"> & { b
     draft: Boolean(data.draft),
     readingTime: data.readingTime ? String(data.readingTime) : undefined,
     pdf: data.pdf ? String(data.pdf) : undefined,
+    romanizedTitle: data.romanizedTitle ? String(data.romanizedTitle) : undefined,
     language: data.language ? String(data.language) : undefined,
     genre: data.genre ? String(data.genre) : undefined,
     venue: data.venue ? String(data.venue) : undefined,

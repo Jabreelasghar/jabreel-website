@@ -51,7 +51,52 @@ export default async function CreativeWritingDetailPage({ params }: Params) {
         <div className="mt-6 max-w-4xl" dir={rtl ? "rtl" : "ltr"}>
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brass">{item.genre ?? "Creative Writing"}</p>
           <h1 className="mt-3 font-serif text-5xl font-semibold leading-tight text-ink">{item.title}</h1>
+          {item.romanizedTitle ? (
+            <p className="mt-3 text-xl font-semibold text-slate" dir="ltr">
+              {item.romanizedTitle}
+            </p>
+          ) : null}
           {item.summary ? <p className="mt-5 text-lg leading-8 text-ink/70">{item.summary}</p> : null}
+          <dl className="mt-8 grid gap-4 border-y border-line py-5 text-sm sm:grid-cols-2" dir="ltr">
+            {item.author ? (
+              <div>
+                <dt className="font-semibold uppercase tracking-[0.12em] text-slate">Author</dt>
+                <dd className="mt-1 text-ink" dir={rtl ? "rtl" : "ltr"}>
+                  {item.author}
+                </dd>
+              </div>
+            ) : null}
+            {item.genre ? (
+              <div>
+                <dt className="font-semibold uppercase tracking-[0.12em] text-slate">Genre</dt>
+                <dd className="mt-1 text-ink">{item.genre}</dd>
+              </div>
+            ) : null}
+            {item.year ? (
+              <div>
+                <dt className="font-semibold uppercase tracking-[0.12em] text-slate">Publication Year</dt>
+                <dd className="mt-1 text-ink">{item.year}</dd>
+              </div>
+            ) : null}
+            {item.status ? (
+              <div>
+                <dt className="font-semibold uppercase tracking-[0.12em] text-slate">Status</dt>
+                <dd className="mt-1 text-ink">{item.status}</dd>
+              </div>
+            ) : null}
+          </dl>
+          {item.pdf ? (
+            <a
+              className="button-primary mt-6"
+              href={item.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${item.romanizedTitle ?? item.title} PDF in a new tab`}
+              dir="ltr"
+            >
+              Read book as PDF
+            </a>
+          ) : null}
           <div className="mt-10 border-t border-line pt-8">
             <MarkdownBody body={item.body} />
           </div>

@@ -14,6 +14,7 @@ export type ContentItem = {
   draft?: boolean;
   readingTime?: string;
   pdf?: string;
+  romanizedTitle?: string;
   language?: string;
   genre?: string;
   venue?: string;

@@ -59,14 +59,19 @@ export default function CreativeWritingPage() {
                         <article key={item.slug} className="py-5">
                           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-moss">{item.genre}</p>
                           <h3 className="mt-2 text-2xl font-semibold text-oxford">{item.title}</h3>
+                          {item.romanizedTitle ? (
+                            <p className="mt-1 text-sm font-semibold text-slate" dir="ltr">
+                              {item.romanizedTitle}
+                            </p>
+                          ) : null}
                           <p className="mt-2 text-sm leading-6 text-slate">
-                            {[item.year ?? item.date, item.publisher].filter(Boolean).join(" · ")}
+                            {[item.year ?? item.date, item.status].filter(Boolean).join(" · ")}
                           </p>
                           {item.summary ? <p className="mt-3 text-sm leading-6 text-slate">{item.summary}</p> : null}
                           <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold">
                             {hasBody ? (
                               <Link className="text-moss hover:text-oxford" href={`/creative-writing/${item.slug}`}>
-                                Read piece
+                                Read book
                               </Link>
                             ) : null}
                             {item.link ? (
