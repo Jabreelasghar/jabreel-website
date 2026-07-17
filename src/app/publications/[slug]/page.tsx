@@ -16,7 +16,18 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const item = getContentItem("publication", slug);
   return {
     title: item?.title ?? "Publication",
-    description: item?.summary || undefined
+    description: item?.summary || undefined,
+    authors: item?.author ? [{ name: item.author }] : [{ name: "Dr Jabreel Asghar" }],
+    keywords: item?.tags?.length ? item.tags : undefined,
+    alternates: {
+      canonical: `/publications/${slug}`
+    },
+    openGraph: {
+      title: item?.title ?? "Publication",
+      description: item?.summary || undefined,
+      type: "article",
+      publishedTime: item?.year
+    }
   };
 }
 
@@ -46,8 +57,17 @@ export default async function PublicationDetailPage({ params }: Params) {
           {item.title}
         </h1>
         {item.summary ? <p className="mt-5 max-w-3xl text-lg leading-8 text-slate">{item.summary}</p> : null}
+        {item.tags.length ? (
+          <div className="mt-5 flex max-w-3xl flex-wrap gap-2">
+            {item.tags.map((tag) => (
+              <span key={tag} className="rounded-sm bg-mist px-2 py-1 text-xs font-medium text-moss">
+                {tag}
+              </span>
+            ))}
+          </div>
+        ) : null}
         {link ? (
-          <a className="button-primary mt-7" href={link.href}>
+          <a className="button-primary mt-7" href={link.href} target="_blank" rel="noopener noreferrer">
             {link.label}
           </a>
         ) : null}

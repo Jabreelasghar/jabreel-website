@@ -67,13 +67,19 @@ input {
 
   .prose-custom p {
     @apply mt-4;
+    overflow-wrap: anywhere;
   }
 
   .prose-custom ul {
     @apply mt-5 list-disc space-y-2 pl-6;
   }
 
+  .prose-custom li {
+    overflow-wrap: anywhere;
+  }
+
   .prose-custom a {
     @apply font-semibold text-moss underline underline-offset-4;
+    overflow-wrap: anywhere;
   }
 }

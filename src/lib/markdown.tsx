@@ -1,7 +1,10 @@
 function inline(text: string) {
   return text
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+    .replace(/\[(.*?)\]\((.*?)\)/g, (_match, label, href) => {
+      const safeExternal = /^https?:\/\//.test(href) ? ' target="_blank" rel="noopener noreferrer"' : "";
+      return `<a href="${href}"${safeExternal}>${label}</a>`;
+    });
 }
 
 export function MarkdownBody({ body }: { body: string }) {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getPublicationContent } from "@/lib/content";
@@ -37,11 +38,25 @@ function PublicationCard({ item, variant = "article" }: { item: ContentItem; var
       <h2 className="mt-3 text-2xl font-semibold text-oxford">{item.title}</h2>
       {item.journal ? <p className="mt-2 text-sm font-semibold text-moss">{item.journal}</p> : null}
       {item.summary ? <p className="mt-4 text-sm leading-6 text-slate">{item.summary}</p> : null}
-      {link ? (
-        <a className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href={link.href}>
-          {link.label}
-        </a>
+      {item.tags.length ? (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {item.tags.slice(0, 4).map((tag) => (
+            <span key={tag} className="rounded-sm bg-mist px-2 py-1 text-xs font-medium text-moss">
+              {tag}
+            </span>
+          ))}
+        </div>
       ) : null}
+      <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
+        <Link className="text-moss hover:text-oxford" href={`/publications/${item.slug}`}>
+          Read summary
+        </Link>
+        {link ? (
+          <a className="text-moss hover:text-oxford" href={link.href} target="_blank" rel="noopener noreferrer">
+            {link.label}
+          </a>
+        ) : null}
+      </div>
     </article>
   );
 }
