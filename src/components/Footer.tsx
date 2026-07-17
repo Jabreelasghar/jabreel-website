@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navigation } from "@/lib/navigation";
+import { navigation, secondaryNavigation } from "@/lib/navigation";
 import { Container } from "./Container";
 
 export function Footer() {
@@ -14,7 +14,7 @@ export function Footer() {
           </p>
         </div>
         <div className="grid gap-3 border-t border-white/15 pt-6 sm:grid-cols-2 md:border-t-0 md:pt-0 lg:grid-cols-3">
-          {navigation.map((item) => (
+          {[...navigation, ...secondaryNavigation].map((item) => (
             <Link key={item.href} className="text-sm font-medium text-white/68 transition hover:text-white" href={item.href}>
               {item.label}
             </Link>

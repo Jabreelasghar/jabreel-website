@@ -1,4 +1,4 @@
-export type ContentKind = "publication" | "resource" | "insight" | "teaching";
+export type ContentKind = "publication" | "resource" | "insight" | "teaching" | "creativeWriting";
 
 export type PublicationCategory = "journal-articles" | "books" | "book-reviews" | "research-in-progress";
 
@@ -11,6 +11,10 @@ export type ContentItem = {
   tags: string[];
   category?: string;
   type?: string;
+  draft?: boolean;
+  readingTime?: string;
+  language?: string;
+  genre?: string;
   venue?: string;
   journal?: string;
   status?: string;

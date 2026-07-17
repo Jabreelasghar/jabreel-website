@@ -6,7 +6,8 @@ const contentDirs: Record<ContentKind, string> = {
   publication: "publications",
   resource: "resources",
   insight: "insights",
-  teaching: "teaching"
+  teaching: "teaching",
+  creativeWriting: "creative-writing"
 };
 
 const contentRoot = path.join(process.cwd(), "content");
@@ -66,6 +67,10 @@ function parseFrontMatter(raw: string): Omit<ContentItem, "slug" | "body"> & { b
     tags: Array.isArray(data.tags) ? data.tags : [],
     category: data.category ? String(data.category) : undefined,
     type: data.type ? String(data.type) : undefined,
+    draft: Boolean(data.draft),
+    readingTime: data.readingTime ? String(data.readingTime) : undefined,
+    language: data.language ? String(data.language) : undefined,
+    genre: data.genre ? String(data.genre) : undefined,
     venue: data.venue ? String(data.venue) : undefined,
     journal: data.journal ? String(data.journal) : undefined,
     status: data.status ? String(data.status) : undefined,
@@ -144,7 +149,7 @@ export function getContent(kind: ContentKind): ContentItem[] {
         category,
         ...parsed
       };
-    })
+    }).filter((item) => !item.draft)
   );
 }
 

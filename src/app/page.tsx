@@ -2,11 +2,21 @@ import { CTA } from "@/components/CTA";
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
-import { getFeatured } from "@/lib/content";
+import { getContent, getFeatured } from "@/lib/content";
 import Link from "next/link";
 
 export default function HomePage() {
   const featuredPublications = getFeatured("publication", 3).filter((item) => item.featured);
+  const latestInsight = getContent("insight")[0];
+  const creativeWriting = getContent("creativeWriting");
+  const formatDate = (date?: string) =>
+    date
+      ? new Intl.DateTimeFormat("en", {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }).format(new Date(`${date}T00:00:00`))
+      : undefined;
   const publicationMeta = (item: (typeof featuredPublications)[number]) =>
     [
       ["Status", item.status],
@@ -34,25 +44,6 @@ export default function HomePage() {
       summary: "Evidence-informed approaches to curriculum, assessment, and quality enhancement in higher education.",
       href: "/educational-quality",
       action: "Learn More"
-    }
-  ];
-
-  const insights = [
-    {
-      title: "Rethinking Assessment in the Age of Generative AI",
-      summary: "Exploring how assessment can evolve while preserving academic integrity and meaningful learning.",
-      href: "/insights/rethinking-assessment-generative-ai"
-    },
-    {
-      title: "Responsible AI Governance in Higher Education",
-      summary: "Examining the policies, practices, and institutional considerations that support responsible AI adoption.",
-      href: "/insights/responsible-ai-governance-higher-education"
-    },
-    {
-      title: "AI-Assisted Academic Writing: Challenges and Opportunities",
-      summary:
-        "Considering authorship, transparency, and educational implications of AI-assisted writing in higher education.",
-      href: "/insights/ai-assisted-academic-writing"
     }
   ];
 
@@ -84,6 +75,36 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+      {latestInsight ? (
+        <section className="border-b border-line bg-ivory">
+          <Container className="grid gap-8 py-10 lg:grid-cols-[0.65fr_1.35fr] lg:items-start">
+            <SectionHeader
+              eyebrow="Latest Insight"
+              title="Recent Editorial Commentary"
+              summary="Research-informed commentary on AI governance, assessment integrity, academic writing, and higher education practice."
+            />
+            <article className="border-y border-line py-5">
+              <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate">
+                {latestInsight.category ? <span>{latestInsight.category}</span> : null}
+                {latestInsight.date ? <span>{formatDate(latestInsight.date)}</span> : null}
+                {latestInsight.readingTime ? <span>{latestInsight.readingTime}</span> : null}
+              </div>
+              <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-oxford">
+                <Link href={`/insights/${latestInsight.slug}`}>{latestInsight.title}</Link>
+              </h2>
+              {latestInsight.summary ? <p className="mt-4 max-w-3xl text-sm leading-6 text-slate">{latestInsight.summary}</p> : null}
+              <div className="mt-5 flex flex-wrap gap-5 text-sm font-semibold">
+                <Link className="text-moss hover:text-oxford" href={`/insights/${latestInsight.slug}`}>
+                  Read insight
+                </Link>
+                <Link className="text-moss hover:text-oxford" href="/insights">
+                  View all insights
+                </Link>
+              </div>
+            </article>
+          </Container>
+        </section>
+      ) : null}
       {featuredPublications.length ? (
         <section className="border-b border-line bg-oxford text-white">
           <Container className="py-10">
@@ -179,28 +200,31 @@ export default function HomePage() {
       <section className="bg-paper">
         <Container className="grid gap-10 py-10 lg:grid-cols-[0.7fr_1.3fr]">
           <SectionHeader
-            eyebrow="Research Insights"
-            title="Ideas, Research, and Commentary"
-            summary="Reflections on AI governance, assessment integrity, academic writing, and higher education informed by research, teaching, and professional practice."
+            eyebrow="Creative Writing"
+            title="Creative and Literary Work"
+            summary="A secondary section for literary and non-academic writing, including Urdu writing, short fiction, reflective prose, and literary essays."
           />
-          <div className="divide-y divide-line border-y border-line">
-            {insights.map((item, index) => (
-              <article
-                key={item.title}
-                className="grid gap-3 py-4 sm:grid-cols-[7rem_1fr]"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-moss">Insight {index + 1}</p>
-                <div>
-                  <h3 className="text-xl font-semibold text-oxford">
-                    <Link href={item.href}>{item.title}</Link>
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate">{item.summary}</p>
-                  <Link className="mt-3 inline-block text-sm font-semibold text-moss hover:text-oxford" href={item.href}>
-                    View topic
-                  </Link>
-                </div>
-              </article>
-            ))}
+          <div className="border-y border-line py-5">
+            <p className="max-w-3xl text-sm leading-6 text-slate">
+              This section provides a dedicated space for creative and literary work without changing the academic focus
+              of the main site.
+            </p>
+            {creativeWriting.length ? (
+              <div className="mt-5 divide-y divide-line border-t border-line">
+                {creativeWriting.slice(0, 2).map((item) => (
+                  <article key={item.slug} className="py-4" dir={item.language === "Urdu" ? "rtl" : "ltr"}>
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-moss">{item.genre ?? "Creative Writing"}</p>
+                    <h3 className="mt-2 text-xl font-semibold text-oxford">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate">
+                      {[item.year ?? item.date, item.publisher].filter(Boolean).join(" · ")}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            ) : null}
+            <Link className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/creative-writing">
+              View Creative Writing
+            </Link>
           </div>
         </Container>
       </section>

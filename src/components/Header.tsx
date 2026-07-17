@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navigation } from "@/lib/navigation";
+import { navigation, secondaryNavigation } from "@/lib/navigation";
 import { Container } from "./Container";
 
 export function Header() {
@@ -41,6 +41,21 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={`border-b px-1 py-2 text-sm font-medium transition ${
+                    active ? "border-moss text-oxford" : "border-transparent text-slate hover:border-line hover:text-oxford"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            {secondaryNavigation.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`border-b px-1 py-2 text-sm font-medium transition lg:hidden ${
                     active ? "border-moss text-oxford" : "border-transparent text-slate hover:border-line hover:text-oxford"
                   }`}
                   onClick={() => setOpen(false)}
