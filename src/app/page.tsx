@@ -3,7 +3,14 @@ import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getContent, getFeatured } from "@/lib/content";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Dr Jabreel Asghar | Higher Education Teaching, Assessment Quality and Responsible AI",
+  description:
+    "University lecturer and higher-education researcher working across academic communication, assessment design, educational quality, and responsible AI."
+};
 
 export default function HomePage() {
   const featuredPublications = getFeatured("publication", 3).filter((item) => item.featured);
