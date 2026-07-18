@@ -16,7 +16,14 @@ const principles = [
   ["Trustworthy judgement", "Rubrics, standardisation, verification, and professional judgement support consistent and defensible decisions."]
 ];
 
-const practiceGroups: { title: string; items: { title: string; href?: string }[] }[] = [
+type PracticeItem = {
+  title: string;
+  href?: string;
+  description?: string;
+  focus?: string[];
+};
+
+const practiceGroups: { title: string; items: PracticeItem[] }[] = [
   {
     title: "Case Studies",
     items: [
@@ -33,11 +40,36 @@ const practiceGroups: { title: string; items: { title: string; href?: string }[]
   {
     title: "Projects",
     items: [
-      { title: "Develop Technical English" },
-      { title: "Develop English Skills for Business Students" },
-      { title: "Professional Writing Learning Materials" },
-      { title: "Future Thinking Skills Capstone" },
-      { title: "Institutional Content Contribution (Grammar)" }
+      {
+        title: "Technical English — Curriculum and Assessment Design",
+        description:
+          "Contributed to the design and development of a technical English course, including curriculum planning, assessment design, and learning materials. The project emphasised constructive alignment, authentic communication tasks, and transparent assessment.",
+        focus: ["Curriculum Design", "Assessment Design", "Technical Communication"]
+      },
+      {
+        title: "English Skills for Business Students — Employability-Focused Learning Design",
+        description:
+          "Designed learning activities and assessment materials to strengthen workplace communication and employability skills through authentic business scenarios and applied language use.",
+        focus: ["Learning Design", "Employability", "Business Communication"]
+      },
+      {
+        title: "Professional Writing — Learning and Assessment Materials",
+        description:
+          "Developed learning resources and assessment activities to support professional writing, audience awareness, and workplace communication across higher education contexts.",
+        focus: ["Professional Writing", "Assessment", "Learning Resources"]
+      },
+      {
+        title: "Future Thinking Skills Capstone — AI-Supported Concept Tutors",
+        description:
+          "Designed AI-supported learning activities to help students explore complex concepts through guided questioning while maintaining instructor oversight and assessment integrity.",
+        focus: ["AI in Education", "Learning Design", "Responsible AI"]
+      },
+      {
+        title: "Institutional Content Contribution — Grammar",
+        description:
+          "Developed institutional teaching materials supporting grammar instruction and language development for foundation-level learners.",
+        focus: ["Language Development", "Learning Resources"]
+      }
     ]
   },
   {
@@ -140,7 +172,18 @@ export default function AssessmentIntegrityPage() {
                             </Link>
                           </div>
                         ) : (
-                          <span className="text-sm font-medium leading-6 text-slate">{item.title}</span>
+                          <div>
+                            <p className={`${item.description ? "font-semibold text-oxford" : "font-medium text-slate"} text-sm leading-5`}>
+                              {item.title}
+                            </p>
+                            {item.description ? <p className="mt-2 text-xs leading-5 text-slate">{item.description}</p> : null}
+                            {item.focus ? (
+                              <p className="mt-2 text-[11px] font-medium leading-5 text-moss">
+                                <span className="font-semibold uppercase tracking-[0.1em] text-slate">Focus:</span>{" "}
+                                {item.focus.join(" • ")}
+                              </p>
+                            ) : null}
+                          </div>
                         )}
                       </div>
                     ))}
