@@ -143,14 +143,30 @@ export default function TechnicalCommunicationAssessmentDesignPage() {
 
             <section className="border-t border-line py-8">
               <h2 className="font-serif text-3xl font-semibold text-oxford">Supporting Evidence</h2>
+              <p className="mt-4 max-w-3xl text-base leading-7 text-slate">
+                The following anonymised extracts illustrate the alignment between the assessment task, evaluation
+                criteria, and learner guidance described in this case study.
+              </p>
               <div className="mt-5 divide-y divide-line border-y border-line">
                 <div className="py-4">
                   <h3 className="text-lg font-semibold text-oxford">Assessment Brief (Anonymised)</h3>
-                  <p className="mt-1 text-sm text-slate">Coming soon.</p>
+                  <a
+                    className="button-primary mt-4"
+                    href="/downloads/technical-communication-assessment-brief-anonymised.pdf"
+                    download
+                  >
+                    Download PDF
+                  </a>
                 </div>
                 <div className="py-4">
                   <h3 className="text-lg font-semibold text-oxford">Rubric Extract (Anonymised)</h3>
-                  <p className="mt-1 text-sm text-slate">Coming soon.</p>
+                  <a
+                    className="button-primary mt-4"
+                    href="/downloads/technical-communication-rubric-extract-anonymised.pdf"
+                    download
+                  >
+                    Download PDF
+                  </a>
                 </div>
               </div>
             </section>
