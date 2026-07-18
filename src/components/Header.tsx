@@ -16,8 +16,8 @@ export function Header() {
         <Link href="/" className="w-[17rem] max-w-[62vw] leading-tight" onClick={() => setOpen(false)}>
           <span className="block font-serif text-lg font-semibold text-oxford">Dr Jabreel Asghar</span>
           <span className="mt-0.5 flex flex-wrap gap-x-2 gap-y-0.5 text-[10px] font-medium uppercase leading-4 tracking-[0.12em] text-slate">
-            <span>AI Governance</span>
-            <span>Higher Education Research</span>
+            <span>Higher Education</span>
+            <span>Assessment • Responsible AI</span>
           </span>
         </Link>
         <button

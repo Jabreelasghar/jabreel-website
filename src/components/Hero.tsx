@@ -11,13 +11,12 @@ export function Hero() {
             Higher Education Teaching, Assessment Quality, and Responsible AI
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-slate">
-            I am a university lecturer and higher-education researcher working across academic communication, assessment
-            design, educational quality, and responsible AI use. My work combines teaching practice, assessment and
-            verification experience, applied research, and the development of practical resources for students,
-            educators, and institutions.
+            I am a university lecturer and higher-education researcher specialising in academic communication,
+            assessment, educational quality, and responsible AI. My work combines teaching, assessment practice, applied
+            research, and practical frameworks that support students, educators, and higher-education institutions.
           </p>
           <div className="mt-4 flex max-w-2xl flex-wrap gap-x-4 gap-y-2 text-xs font-medium uppercase tracking-[0.1em] text-slate">
-            {["University Lecturer", "Fellow of Advance HE (FHEA)", "Applied Linguistics", "Assessment & Quality", "Responsible AI"].map(
+            {["University Lecturer", "Fellow of Advance HE (FHEA)", "Applied Linguistics", "Assessment Quality", "Responsible AI"].map(
               (item) => (
                 <span key={item} className="before:mr-2 before:text-moss before:content-['•']">
                   {item}
@@ -40,19 +39,19 @@ export function Hero() {
             {[
               [
                 "Teaching and Academic Communication",
-                "University teaching, EAP, academic writing, student learning, and multilingual higher education."
+                "Teaching, English for Academic Purposes, academic writing, student learning, and multilingual higher education."
               ],
               [
                 "Assessment and Educational Quality",
-                "Assessment design, rubrics, standardisation, verification, feedback, and quality enhancement."
+                "Assessment design, rubric development, standardisation, verification, feedback, and quality enhancement."
               ],
               [
                 "Responsible AI and Academic Integrity",
-                "Authorship, disclosure, assessment integrity, human judgement, and responsible AI use in education."
+                "Responsible AI, authorship, disclosure, assessment integrity, and trustworthy educational practice."
               ],
               [
                 "Research and Evidence",
-                "Applied linguistics, discourse analysis, AI-assisted academic writing, and higher-education research."
+                "Applied linguistics, discourse analysis, higher education, and AI-assisted academic writing."
               ]
             ].map(([title, text], index) => (
               <div key={title} className="grid grid-cols-[2.1rem_1fr] gap-3 py-2.5 first:pt-0 last:pb-0">
@@ -65,7 +64,7 @@ export function Hero() {
             ))}
           </div>
           <p className="mt-3 border-t border-line pt-3 text-sm leading-6 text-slate">
-            Work at the intersection of university teaching, assessment quality, academic communication, and responsible AI.
+            Integrating teaching, assessment, research, and responsible AI to improve higher-education practice.
           </p>
         </aside>
       </Container>
