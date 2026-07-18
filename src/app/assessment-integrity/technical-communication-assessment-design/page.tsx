@@ -153,9 +153,10 @@ export default function TechnicalCommunicationAssessmentDesignPage() {
                   <a
                     className="button-primary mt-4"
                     href="/downloads/technical-communication-assessment-brief-anonymised.pdf"
-                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Download PDF
+                    View PDF
                   </a>
                 </div>
                 <div className="py-4">
@@ -163,9 +164,10 @@ export default function TechnicalCommunicationAssessmentDesignPage() {
                   <a
                     className="button-primary mt-4"
                     href="/downloads/technical-communication-rubric-extract-anonymised.pdf"
-                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Download PDF
+                    View PDF
                   </a>
                 </div>
               </div>
