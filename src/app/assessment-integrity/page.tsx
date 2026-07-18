@@ -16,17 +16,37 @@ const principles = [
   ["Trustworthy judgement", "Rubrics, standardisation, verification, and professional judgement support consistent and defensible decisions."]
 ];
 
-const practiceAreas = [
-  [
-    "Rubric Design & Standardisation",
-    "Developing clear assessment criteria and shared approaches to applying academic standards.",
-    "/assessment-integrity/technical-communication-assessment-design"
-  ],
-  ["CLO Alignment", "Reviewing the relationship between course learning outcomes, assessment tasks, and evidence of achievement."],
-  ["Internal Verification", "Supporting structured review of assessment briefs, criteria, marking, and quality-assurance processes."],
-  ["AI-Aware Assessment Design", "Considering responsible AI use, authorship, transparency, and learning evidence during assessment design."],
-  ["Oral Verification", "Using focused academic dialogue to support verification of understanding, process, and authorship."],
-  ["Feedback for Learning", "Designing feedback practices that help students understand standards and improve future work."]
+const practiceGroups = [
+  {
+    title: "Case Studies",
+    items: [
+      {
+        title: "Assessment Design for Technical Communication to Non-Technical Audiences",
+        href: "/assessment-integrity/technical-communication-assessment-design"
+      },
+      { title: "AI-Supported Reading Comprehension Design" }
+    ]
+  },
+  {
+    title: "Projects",
+    items: [
+      { title: "Develop Technical English" },
+      { title: "Develop English Skills for Business Students" },
+      { title: "Professional Writing Learning Materials" },
+      { title: "Future Thinking Skills Capstone" },
+      { title: "Institutional Content Contribution (Grammar)" }
+    ]
+  },
+  {
+    title: "Teaching & Assessment Artefacts",
+    items: [
+      { title: "Assessment Brief Extract" },
+      { title: "Rubric Extract" },
+      { title: "AI Prompt Structure" },
+      { title: "AI Reading Interaction" },
+      { title: "Reflective Feedback Prompt" }
+    ]
+  }
 ];
 
 const frameworks = [
@@ -100,22 +120,28 @@ export default function AssessmentIntegrityPage() {
 
           <HubSection
             title="Assessment in Practice"
-            introduction="These practice areas will develop into documented examples as suitable, verified case material becomes available."
+            introduction="Case studies, projects, and teaching and assessment artefacts from professional practice."
           >
-            <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {practiceAreas.map(([title, description, href]) => (
-                <article key={title} className="flex h-full flex-col rounded-sm border border-line bg-ivory p-5">
-                  <h3 className="text-xl font-semibold text-oxford">{title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-6 text-slate">{description}</p>
-                  {href ? (
-                    <Link className="mt-5 border-t border-line pt-4 text-xs font-semibold uppercase tracking-[0.12em] text-moss hover:text-oxford" href={href}>
-                      Read case study
-                    </Link>
-                  ) : (
-                    <p className="mt-5 border-t border-line pt-4 text-xs font-medium uppercase tracking-[0.12em] text-moss">
-                      Case study coming soon
-                    </p>
-                  )}
+            <div className="mt-6 grid gap-5 lg:grid-cols-3">
+              {practiceGroups.map((group) => (
+                <article key={group.title} className="rounded-sm border border-line bg-ivory p-5">
+                  <h3 className="font-serif text-2xl font-semibold text-oxford">{group.title}</h3>
+                  <div className="mt-4 divide-y divide-line border-y border-line">
+                    {group.items.map((item) => (
+                      <div key={item.title} className="py-3">
+                        {item.href ? (
+                          <div>
+                            <p className="text-sm font-medium leading-6 text-slate">{item.title}</p>
+                            <Link className="mt-1 inline-block text-xs font-semibold uppercase tracking-[0.12em] text-moss hover:text-oxford" href={item.href}>
+                              View Case Study
+                            </Link>
+                          </div>
+                        ) : (
+                          <span className="text-sm font-medium leading-6 text-slate">{item.title}</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </article>
               ))}
             </div>
