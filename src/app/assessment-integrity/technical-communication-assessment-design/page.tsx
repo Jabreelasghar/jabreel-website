@@ -53,7 +53,7 @@ export default function TechnicalCommunicationAssessmentDesignPage() {
       <section className="border-b border-line bg-ivory">
         <Container className="py-14">
           <SectionHeader
-            eyebrow="Case Study · Assessment Design"
+            eyebrow="Assessment Integrity · Case Study"
             title="Assessment Design for Technical Communication to Non-Technical Audiences"
             summary="Designing an oral presentation assessment that evaluates the clear and accessible communication of technical information."
           />
@@ -95,8 +95,8 @@ export default function TechnicalCommunicationAssessmentDesignPage() {
               </div>
             </section>
 
-            <Link className="mt-2 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/case-studies">
-              Back to Case Studies
+            <Link className="mt-2 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/assessment-integrity">
+              Back to Assessment Integrity
             </Link>
           </article>
         </Container>

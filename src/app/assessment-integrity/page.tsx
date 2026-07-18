@@ -17,7 +17,11 @@ const principles = [
 ];
 
 const practiceAreas = [
-  ["Rubric Design & Standardisation", "Developing clear assessment criteria and shared approaches to applying academic standards."],
+  [
+    "Rubric Design & Standardisation",
+    "Developing clear assessment criteria and shared approaches to applying academic standards.",
+    "/assessment-integrity/technical-communication-assessment-design"
+  ],
   ["CLO Alignment", "Reviewing the relationship between course learning outcomes, assessment tasks, and evidence of achievement."],
   ["Internal Verification", "Supporting structured review of assessment briefs, criteria, marking, and quality-assurance processes."],
   ["AI-Aware Assessment Design", "Considering responsible AI use, authorship, transparency, and learning evidence during assessment design."],
@@ -99,13 +103,19 @@ export default function AssessmentIntegrityPage() {
             introduction="These practice areas will develop into documented examples as suitable, verified case material becomes available."
           >
             <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {practiceAreas.map(([title, description]) => (
+              {practiceAreas.map(([title, description, href]) => (
                 <article key={title} className="flex h-full flex-col rounded-sm border border-line bg-ivory p-5">
                   <h3 className="text-xl font-semibold text-oxford">{title}</h3>
                   <p className="mt-3 flex-1 text-sm leading-6 text-slate">{description}</p>
-                  <p className="mt-5 border-t border-line pt-4 text-xs font-medium uppercase tracking-[0.12em] text-moss">
-                    Case study coming soon
-                  </p>
+                  {href ? (
+                    <Link className="mt-5 border-t border-line pt-4 text-xs font-semibold uppercase tracking-[0.12em] text-moss hover:text-oxford" href={href}>
+                      Read case study
+                    </Link>
+                  ) : (
+                    <p className="mt-5 border-t border-line pt-4 text-xs font-medium uppercase tracking-[0.12em] text-moss">
+                      Case study coming soon
+                    </p>
+                  )}
                 </article>
               ))}
             </div>
