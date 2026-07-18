@@ -1,12 +1,70 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CTA } from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Assessment Integrity",
-  description: "Approaches to authentic assessment, academic integrity, and trustworthy evaluation in AI-mediated learning."
+  title: "Assessment Integrity and Professional Practice",
+  description:
+    "Professional practice in assessment design, quality assurance, academic integrity, and trustworthy evaluation in higher education."
 };
+
+const principles = [
+  ["Purposeful assessment", "Assessment should produce meaningful evidence of learning while remaining aligned with its educational purpose."],
+  ["Transparent expectations", "Students and educators need clear expectations for authorship, process, feedback, and responsible AI use."],
+  ["Trustworthy judgement", "Rubrics, standardisation, verification, and professional judgement support consistent and defensible decisions."]
+];
+
+const practiceAreas = [
+  ["Rubric Design & Standardisation", "Developing clear assessment criteria and shared approaches to applying academic standards."],
+  ["CLO Alignment", "Reviewing the relationship between course learning outcomes, assessment tasks, and evidence of achievement."],
+  ["Internal Verification", "Supporting structured review of assessment briefs, criteria, marking, and quality-assurance processes."],
+  ["AI-Aware Assessment Design", "Considering responsible AI use, authorship, transparency, and learning evidence during assessment design."],
+  ["Oral Verification", "Using focused academic dialogue to support verification of understanding, process, and authorship."],
+  ["Feedback for Learning", "Designing feedback practices that help students understand standards and improve future work."]
+];
+
+const frameworks = [
+  ["From Assistance to Authorship", "/frameworks/framework-01-from-assistance-to-authorship.pdf"],
+  ["AI-Integrated Assessment Integrity Lifecycle", "/frameworks/framework-02-assessment-integrity-lifecycle.pdf"],
+  ["AI Disclosure Framework", "/frameworks/framework-03-ai-disclosure-framework.pdf"],
+  ["Oral Verification Toolkit", "/frameworks/framework-04-oral-verification-toolkit.pdf"],
+  ["Assessment Authenticity Checklist", "/frameworks/framework-05-assessment-authenticity-checklist.pdf"],
+  ["AI Risk-Level Matrix", "/frameworks/framework-06-ai-risk-level-matrix.pdf"],
+  ["Institutional AI Governance Guide", "/frameworks/framework-07-institutional-ai-governance-guide.pdf"]
+];
+
+const publications = [
+  {
+    title: "Constructing Legitimacy in AI-Assisted Academic Writing",
+    description: "Published research on responsibility, limitation, and disclosure in AI-assisted academic writing.",
+    href: "/publications/constructing-legitimacy-ai-assisted-academic-writing"
+  },
+  {
+    title: "HEAC-AI",
+    description: "Research in preparation comparing scholarly authority in human-authored and AI-generated academic writing.",
+    href: "/publications/heac-ai"
+  }
+];
+
+function HubSection({
+  title,
+  introduction,
+  children
+}: {
+  title: string;
+  introduction: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="border-t border-line py-10 first:border-t-0 first:pt-0">
+      <h2 className="font-serif text-3xl font-semibold text-oxford">{title}</h2>
+      <p className="mt-3 max-w-3xl leading-7 text-slate">{introduction}</p>
+      {children}
+    </section>
+  );
+}
 
 export default function AssessmentIntegrityPage() {
   return (
@@ -15,33 +73,107 @@ export default function AssessmentIntegrityPage() {
         <Container className="py-14">
           <SectionHeader
             eyebrow="Assessment Integrity"
-            title="Assessment Integrity"
-            summary="Approaches to authentic assessment, academic integrity, and trustworthy evaluation in AI-mediated learning."
+            title="Assessment Integrity and Professional Practice"
+            summary="Assessment design, educational quality, academic integrity, and trustworthy evaluation in higher education."
           />
         </Container>
       </section>
       <section className="bg-paper">
         <Container className="py-14">
-          <div className="max-w-3xl">
-            <h2 className="font-serif text-3xl font-semibold text-oxford">Area of work</h2>
-            <p className="mt-4 leading-7 text-slate">
-              This area focuses on authentic assessment approaches that promote academic integrity, transparency, and
-              trustworthy evaluation. Future updates may include related publications, practical guides, downloadable
-              materials, and further reading.
-            </p>
-          </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {[
-            ["Authentic assessment", "Designing assessment approaches that support meaningful learning and evaluation."],
-            ["Academic integrity", "Clarifying expectations around authorship, transparency, and responsible AI use."],
-            ["Trustworthy evaluation", "Strengthening rubrics, feedback, and quality assurance practices."]
-          ].map(([title, text]) => (
-            <div key={title} className="rounded-sm border border-line bg-ivory p-5">
-              <h2 className="font-serif text-2xl font-semibold text-oxford">{title}</h2>
-              <p className="mt-3 text-sm leading-6 text-slate">{text}</p>
+          <HubSection
+            title="Principles"
+            introduction="A practice-led approach to assessment integrity begins with educational purpose, transparent expectations, and trustworthy academic judgement."
+          >
+            <div className="mt-6 grid gap-5 md:grid-cols-3">
+              {principles.map(([title, description]) => (
+                <article key={title} className="rounded-sm border border-line bg-ivory p-5">
+                  <h3 className="font-serif text-2xl font-semibold text-oxford">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate">{description}</p>
+                </article>
+              ))}
             </div>
-          ))}
-          </div>
+          </HubSection>
+
+          <HubSection
+            title="Assessment in Practice"
+            introduction="These practice areas will develop into documented examples as suitable, verified case material becomes available."
+          >
+            <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {practiceAreas.map(([title, description]) => (
+                <article key={title} className="flex h-full flex-col rounded-sm border border-line bg-ivory p-5">
+                  <h3 className="text-xl font-semibold text-oxford">{title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-slate">{description}</p>
+                  <p className="mt-5 border-t border-line pt-4 text-xs font-medium uppercase tracking-[0.12em] text-moss">
+                    Case study coming soon
+                  </p>
+                </article>
+              ))}
+            </div>
+          </HubSection>
+
+          <HubSection
+            title="Framework Collection"
+            introduction="The existing framework series provides practical tools for assessment integrity, responsible AI use, authorship, disclosure, verification, and institutional practice."
+          >
+            <div className="mt-6 divide-y divide-line border-y border-line">
+              {frameworks.map(([title, href], index) => (
+                <article key={href} className="grid gap-3 py-4 sm:grid-cols-[3rem_1fr_auto] sm:items-center">
+                  <span className="text-sm font-semibold text-moss">{String(index + 1).padStart(2, "0")}</span>
+                  <h3 className="text-lg font-semibold text-oxford">{title}</h3>
+                  <a className="text-sm font-semibold text-moss hover:text-oxford" href={href} target="_blank" rel="noopener noreferrer">
+                    Open PDF
+                  </a>
+                </article>
+              ))}
+            </div>
+            <Link className="mt-6 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/resources">
+              View the complete framework series
+            </Link>
+          </HubSection>
+
+          <HubSection
+            title="Publications"
+            introduction="Selected research connected to academic writing, authorship, disclosure, and assessment integrity."
+          >
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              {publications.map((publication) => (
+                <article key={publication.href} className="rounded-sm border border-line bg-ivory p-5">
+                  <h3 className="text-xl font-semibold text-oxford">{publication.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate">{publication.description}</p>
+                  <Link className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href={publication.href}>
+                    View publication
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </HubSection>
+
+          <HubSection
+            title="Resources"
+            introduction="Practical materials for reviewing assessment design, learning evidence, authorship expectations, and responsible AI use."
+          >
+            <article className="mt-6 rounded-sm border border-line bg-ivory p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-moss">Template</p>
+              <h3 className="mt-2 text-xl font-semibold text-oxford">Assessment Integrity Audit Template</h3>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-slate">
+                A structured audit template for evaluating assessment validity, authorship evidence, feedback design, and AI-use expectations.
+              </p>
+              <Link className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/resources/assessment-integrity-audit">
+                View resource
+              </Link>
+            </article>
+          </HubSection>
+
+          <HubSection
+            title="Current Development"
+            introduction="Practice examples and supporting materials will be added when they can be presented with appropriate context and verification."
+          >
+            <div className="mt-6 border-l-4 border-moss bg-ivory p-5">
+              <p className="max-w-3xl text-sm leading-6 text-slate">
+                Current development is focused on preparing the six assessment-practice areas above for future case-based documentation. No project details or outcomes are presented before they are ready for publication.
+              </p>
+            </div>
+          </HubSection>
         </Container>
       </section>
       <CTA />
