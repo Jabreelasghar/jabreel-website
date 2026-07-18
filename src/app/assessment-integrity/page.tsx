@@ -16,7 +16,7 @@ const principles = [
   ["Trustworthy judgement", "Rubrics, standardisation, verification, and professional judgement support consistent and defensible decisions."]
 ];
 
-const practiceGroups = [
+const practiceGroups: { title: string; items: { title: string; href?: string }[] }[] = [
   {
     title: "Case Studies",
     items: [
@@ -24,7 +24,10 @@ const practiceGroups = [
         title: "Assessment Design for Technical Communication to Non-Technical Audiences",
         href: "/assessment-integrity/technical-communication-assessment-design"
       },
-      { title: "AI-Supported Reading Comprehension Design" }
+      {
+        title: "Designing an AI-Supported Reading Practice Environment",
+        href: "/assessment-integrity/ai-supported-reading-practice"
+      }
     ]
   },
   {
