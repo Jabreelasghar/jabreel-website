@@ -2,20 +2,9 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getDraftContent } from "@/lib/content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Insights",
-  description:
-    "Forthcoming editorials and commentary on AI in higher education, assessment integrity, academic writing, university teaching, and educational policy.",
-  alternates: {
-    canonical: "/insights"
-  },
-  openGraph: {
-    title: "Insights",
-    description:
-      "Forthcoming editorials and commentary on AI in higher education, assessment integrity, academic writing, university teaching, and educational policy."
-  }
-};
+export const metadata: Metadata = createPageMetadata({ title: "Insights", description: "Forthcoming editorials and commentary on AI in higher education, assessment integrity, academic writing, university teaching, and educational policy.", path: "/insights" });
 
 export default function InsightsPage() {
   const forthcomingOrder = [

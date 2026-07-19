@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Teaching | Dr Jabreel Asghar",
-  description: "Teaching practice in learning design, authentic assessment, academic communication, and responsible AI in higher education."
-};
+export const metadata: Metadata = createPageMetadata({ title: "Teaching", description: "Teaching practice in learning design, authentic assessment, academic communication, and responsible AI in higher education.", path: "/teaching" });
 
 const principles = [
   ["Authenticity", "Learning activities should resemble the forms of communication, judgement, and problem-solving students will encounter beyond the classroom."],

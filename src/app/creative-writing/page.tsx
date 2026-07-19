@@ -3,20 +3,9 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getContent } from "@/lib/content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Creative Writing",
-  description:
-    "Creative writing by Dr Jabreel Asghar, including Urdu writing, short fiction, reflective prose, and literary work.",
-  alternates: {
-    canonical: "/creative-writing"
-  },
-  openGraph: {
-    title: "Creative Writing",
-    description:
-      "Creative writing by Dr Jabreel Asghar, including Urdu writing, short fiction, reflective prose, and literary work."
-  }
-};
+export const metadata: Metadata = createPageMetadata({ title: "Creative Writing", description: "Creative writing by Dr Jabreel Asghar, including Urdu writing, short fiction, reflective prose, and literary work.", path: "/creative-writing" });
 
 const groups = [
   { key: "English", label: "English" },

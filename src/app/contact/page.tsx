@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact Dr Jabreel Asghar regarding research collaboration, invited talks, workshops, assessment consultancy, and AI governance in higher education."
-};
+export const metadata: Metadata = createPageMetadata({ title: "Contact", description: "Contact Dr Jabreel Asghar regarding research collaboration, invited talks, workshops, assessment consultancy, and AI governance in higher education.", path: "/contact" });
 
 const profileLinks = [
   {

@@ -29,7 +29,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     },
     openGraph: {
       title: item?.title ?? "Creative Writing",
-      description: item?.summary
+      description: item?.summary,
+      url: item ? `/creative-writing/${item.slug}` : "/creative-writing",
+      siteName: "Dr Jabreel Asghar",
+      type: "article",
+      locale: "en_GB"
     }
   };
 }

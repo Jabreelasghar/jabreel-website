@@ -1,20 +1,9 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "AI Governance Framework Series",
-  description:
-    "Framework publications and supporting documents for AI governance, assessment integrity, and responsible AI use in higher education.",
-  alternates: {
-    canonical: "/resources"
-  },
-  openGraph: {
-    title: "AI Governance Framework Series",
-    description:
-      "Framework publications and supporting documents for AI governance, assessment integrity, and responsible AI use in higher education."
-  }
-};
+export const metadata: Metadata = createPageMetadata({ title: "Frameworks and Resources", description: "Framework publications and supporting documents for AI governance, assessment integrity, and responsible AI use in higher education.", path: "/resources" });
 
 type FrameworkPdf = {
   title: string;

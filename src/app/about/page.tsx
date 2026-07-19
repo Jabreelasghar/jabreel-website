@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "About Dr Jabreel Asghar, university lecturer and AI governance researcher."
-};
+export const metadata: Metadata = createPageMetadata({ title: "About", description: "About Dr Jabreel Asghar, university lecturer and AI governance researcher.", path: "/about" });
 
 export default function AboutPage() {
   const profileItems = [

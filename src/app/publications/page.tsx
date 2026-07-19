@@ -4,11 +4,9 @@ import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getPublicationContent } from "@/lib/content";
 import type { ContentItem } from "@/lib/types";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Publications",
-  description: "Selected publications and ongoing research by Dr Jabreel Asghar."
-};
+export const metadata: Metadata = createPageMetadata({ title: "Publications", description: "Selected publications and ongoing research by Dr Jabreel Asghar.", path: "/publications" });
 
 function itemLink(item: ContentItem): { href: string; label: string } | undefined {
   if (item.doi) return { href: `https://doi.org/${item.doi}`, label: `DOI: ${item.doi}` };

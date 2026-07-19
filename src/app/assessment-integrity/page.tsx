@@ -3,12 +3,9 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CTA } from "@/components/CTA";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Assessment Integrity and Professional Practice",
-  description:
-    "Professional practice in assessment design, quality assurance, academic integrity, and trustworthy evaluation in higher education."
-};
+export const metadata: Metadata = createPageMetadata({ title: "Assessment Integrity", description: "Professional practice in assessment design, quality assurance, academic integrity, and trustworthy evaluation in higher education.", path: "/assessment-integrity" });
 
 const principles = [
   ["Purposeful assessment", "Assessment should produce meaningful evidence of learning while remaining aligned with its educational purpose."],

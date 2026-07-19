@@ -4,7 +4,7 @@ import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 
 export const metadata: Metadata = {
-  title: "English Skills for Business Students | Dr Jabreel Asghar",
+  title: "English Skills for Business Students",
   description: "An employability-focused Business English learning-design project integrating CV writing, cover letters, LinkedIn profiles, workplace memos, interactive learning and assessment scaffolding."
 };
 

@@ -15,7 +15,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const item = getContentItem("resource", slug);
   return {
     title: item?.title ?? "Resource",
-    description: item?.summary
+    description: item?.summary,
+    alternates: { canonical: item ? `/resources/${item.slug}` : "/resources" },
+    openGraph: {
+      title: item?.title ?? "Resource",
+      description: item?.summary,
+      url: item ? `/resources/${item.slug}` : "/resources",
+      siteName: "Dr Jabreel Asghar",
+      type: "website",
+      locale: "en_GB"
+    }
   };
 }
 
