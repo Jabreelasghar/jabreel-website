@@ -62,10 +62,11 @@ const practiceGroups: { title: string; items: PracticeItem[] }[] = [
         focus: ["Professional Writing", "Assessment", "Learning Resources"]
       },
       {
-        title: "Future Thinking Skills Capstone — AI-Supported Concept Tutors",
+        title: "Future Thinking Skills Capstone — AI Learning Assistant",
+        href: "/assessment-integrity/projects/future-thinking-skills-ai-learning-assistant",
         description:
-          "Designed AI-supported learning activities to help students explore complex concepts through guided questioning while maintaining instructor oversight and assessment integrity.",
-        focus: ["AI in Education", "Learning Design", "Responsible AI"]
+          "Designed and implemented a course-specific ChatGPT learning assistant to support concept exploration, guided questioning and independent study while maintaining instructor oversight and assessment integrity.",
+        focus: ["Responsible AI", "Learning Design", "Prompt Design", "AI Literacy"]
       },
       {
         title: "Institutional Content Contribution — Grammar",
