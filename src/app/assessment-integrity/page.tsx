@@ -70,9 +70,10 @@ const practiceGroups: { title: string; items: PracticeItem[] }[] = [
       },
       {
         title: "Institutional Content Contribution — Grammar",
+        href: "/assessment-integrity/projects/institutional-content-contribution-grammar",
         description:
           "Developed institutional teaching materials supporting grammar instruction and language development for foundation-level learners.",
-        focus: ["Language Development", "Learning Resources"]
+        focus: ["Language Development", "Curriculum Resources", "Learning Design", "Institutional Collaboration"]
       }
     ]
   },
