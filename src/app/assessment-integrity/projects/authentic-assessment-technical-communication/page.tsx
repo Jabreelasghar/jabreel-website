@@ -24,28 +24,40 @@ const workflow = [
   "Participate in a follow-up discussion board activity to extend learning and encourage peer interaction."
 ];
 
+const assessmentPackage = [
+  ["Assessment Specification", "Defines the task, learning outcomes, assessment criteria and implementation requirements."],
+  ["Assessment Rubric", "Supports transparent, criterion-referenced and consistent marking."],
+  ["Student Guide", "Scaffolds topic selection, audience adaptation, presentation preparation and recording."],
+  ["Teacher Guide", "Supports classroom preparation, formative practice and assessment implementation."],
+  ["Presentation Checklist", "Enables students to review task requirements before submission."],
+  ["Presentation Template", "Provides a clear structure for communicating an IT issue to a non-technical audience."],
+  ["Discussion Activity", "Extends learning through written reflection, peer response and interaction."]
+];
+
 const deliverables = [
   {
     title: "Assessment Brief",
     description: "Complete assessment brief, learning outcomes, assessment criteria and implementation guidance.",
-    href: "/downloads/technical-communication-assessment-brief-anonymised.pdf"
+    href: "/downloads/technical-communication-assessment-brief-anonymised.pdf",
+    action: "View Assessment Brief"
   },
   {
     title: "Rubric Extract",
     description: "Criterion-referenced rubric assessing clarity, technical terminology, audience adaptation and presentation delivery. I developed the initial rubric, which was subsequently proofread and reviewed by the Course Team Leader before implementation.",
-    href: "/downloads/technical-communication-rubric-extract-anonymised.pdf"
+    href: "/downloads/technical-communication-rubric-extract-anonymised.pdf",
+    action: "View Rubric Extract"
   }
 ];
 
 const features = [
   "Authentic communication task",
-  "Audience adaptation",
-  "Transparent assessment criteria",
   "Constructive alignment",
+  "Transparent assessment criteria",
+  "Audience adaptation",
   "Scaffolded learner support",
   "Teacher implementation guidance",
-  "Consistent assessment practice",
-  "Integrated assessment ecosystem"
+  "Integrated assessment ecosystem",
+  "Consistent assessment practice"
 ];
 
 function ProjectSection({ title, children }: { title: string; children: React.ReactNode }) {
@@ -71,7 +83,7 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
             summary="A complete assessment package developed for the Technical English (GED-200) course, including assessment specification, rubric, teacher guidance, student support materials and implementation resources."
           />
           <p className="mt-6 max-w-4xl text-base leading-7 text-slate">
-            This project documents the design of an authentic assessment package developed for a Technical English course for IT students. The assessment required students to explain an IT-related topic to a non-technical audience through a short video-recorded presentation before extending their learning into an online discussion activity. The project demonstrates an integrated approach to assessment design that combines constructive alignment, authentic communication tasks, transparent assessment criteria, and structured learner support.
+            This project documents the design of an integrated assessment package for a Technical English course for IT students. Students were required to explain an IT-related topic to a non-technical audience through a short video-recorded presentation, followed by an online discussion activity that extended learning beyond the presentation itself. The project demonstrates how constructive alignment, authentic communication tasks, transparent assessment criteria and structured learner support can be combined within a single assessment design.
           </p>
         </Container>
       </section>
@@ -88,7 +100,7 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
             </section>
 
             <ProjectSection title="My Contribution">
-              <p>I created the assessment materials and supporting learning resources, including:</p>
+              <p>I designed the assessment package and developed the supporting learning resources, including:</p>
               <ul className="space-y-2 border-l-4 border-moss bg-ivory px-5 py-4">
                 <li>Assessment specification</li>
                 <li>Oral presentation task</li>
@@ -99,7 +111,19 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
                 <li>Material-development guidance</li>
                 <li>Initial assessment rubric</li>
               </ul>
-              <p>The assessment rubric was subsequently proofread and reviewed by the Course Team Leader before implementation. Later edits made by others are not presented as my sole work.</p>
+              <p>The initial assessment rubric was developed by me and subsequently proofread and reviewed by the Course Team Leader before implementation. Later edits made by others are not presented as my sole work.</p>
+            </ProjectSection>
+
+            <ProjectSection title="Assessment Package">
+              <p>The project brought together the following components as one integrated assessment system.</p>
+              <div className="grid gap-4 pt-1 sm:grid-cols-2">
+                {assessmentPackage.map(([component, purpose]) => (
+                  <article key={component} className="rounded-sm border border-line bg-ivory p-5">
+                    <h3 className="text-lg font-semibold text-oxford">{component}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate">{purpose}</p>
+                  </article>
+                ))}
+              </div>
             </ProjectSection>
 
             <ProjectSection title="Design Principles">
@@ -114,7 +138,8 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
               </div>
             </ProjectSection>
 
-            <ProjectSection title="Assessment Workflow">
+            <ProjectSection title="Assessment Process">
+              <p>The complete task instructions and assessment criteria are available in the Assessment Brief below.</p>
               <ol className="divide-y divide-line border-y border-line">
                 {workflow.map((step, index) => (
                   <li key={step} className="grid grid-cols-[2.5rem_1fr] gap-3 py-3">
@@ -134,7 +159,7 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
                     <h3 className="mt-2 text-lg font-semibold text-oxford">{item.title}</h3>
                     <p className="mt-3 flex-1 text-sm leading-6 text-slate">{item.description}</p>
                     <a className="button-primary mt-5 self-start" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Open PDF: ${item.title}`}>
-                      Open PDF
+                      {item.action}
                     </a>
                   </article>
                 ))}
@@ -152,7 +177,8 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
             </ProjectSection>
 
             <ProjectSection title="Reflection">
-              <p>This project reinforced the importance of designing assessment as an integrated learning system rather than a standalone task. Student performance is influenced not only by the assessment itself but also by the quality of guidance, transparency of expectations, and alignment between learning activities and assessment criteria. The project demonstrated how structured support materials can improve assessment consistency while helping students develop communication skills that extend beyond the classroom.</p>
+              <p>This project reinforced the importance of designing assessment as an integrated learning system rather than a standalone task. Student performance is influenced not only by the assessment itself but also by the quality of guidance, transparency of expectations and alignment between learning activities and assessment criteria. The project demonstrated how structured support materials can improve assessment consistency while helping students develop communication skills that extend beyond the classroom.</p>
+              <p>The experience also reinforced that effective assessment design extends beyond writing a task or rubric. It involves creating an integrated assessment system that enables both students and teachers to understand expectations, prepare effectively and apply assessment criteria consistently.</p>
             </ProjectSection>
 
             <ProjectSection title="Related Case Study">
