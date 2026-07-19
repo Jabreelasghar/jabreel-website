@@ -48,9 +48,10 @@ const practiceGroups: { title: string; items: PracticeItem[] }[] = [
       },
       {
         title: "English Skills for Business Students — Employability-Focused Learning Design",
+        href: "/assessment-integrity/projects/english-skills-business-employability",
         description:
-          "Designed learning activities and assessment materials to strengthen workplace communication and employability skills through authentic business scenarios and applied language use.",
-        focus: ["Learning Design", "Employability", "Business Communication"]
+          "Independently designed a connected sequence of interactive Business English lessons, assessment tasks, planning resources and rubrics across CV writing, cover letters, LinkedIn profiles and workplace memos. The materials are used in HCT course delivery, and the rubrics form part of current assessment practice.",
+        focus: ["Employability Learning", "Business Communication", "Authentic Assessment"]
       },
       {
         title: "Professional Writing — Learning and Assessment Materials",
@@ -166,9 +167,16 @@ export default function AssessmentIntegrityPage() {
                       <div key={item.title} className="py-3">
                         {item.href ? (
                           <div>
-                            <p className="text-sm font-medium leading-6 text-slate">{item.title}</p>
+                            <p className={`${item.description ? "font-semibold text-oxford" : "font-medium text-slate"} text-sm leading-5`}>{item.title}</p>
+                            {item.description ? <p className="mt-2 text-xs leading-5 text-slate">{item.description}</p> : null}
+                            {item.focus ? (
+                              <p className="mt-2 text-[11px] font-medium leading-5 text-moss">
+                                <span className="font-semibold uppercase tracking-[0.1em] text-slate">Focus:</span>{" "}
+                                {item.focus.join(" • ")}
+                              </p>
+                            ) : null}
                             <Link className="mt-1 inline-block text-xs font-semibold uppercase tracking-[0.12em] text-moss hover:text-oxford" href={item.href}>
-                              View Case Study
+                              {item.description ? "View Project" : "View Case Study"}
                             </Link>
                           </div>
                         ) : (
