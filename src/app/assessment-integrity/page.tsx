@@ -41,10 +41,11 @@ const practiceGroups: { title: string; items: PracticeItem[] }[] = [
     title: "Projects",
     items: [
       {
-        title: "Technical English — Curriculum and Assessment Design",
+        title: "Authentic Assessment Design for Technical Communication",
+        href: "/assessment-integrity/projects/authentic-assessment-technical-communication",
         description:
-          "Contributed to the design and development of a technical English course, including curriculum planning, assessment design, and learning materials. The project emphasised constructive alignment, authentic communication tasks, and transparent assessment.",
-        focus: ["Curriculum Design", "Assessment Design", "Technical Communication"]
+          "Designed an integrated assessment package for a Technical English course, combining an authentic presentation task, criterion-referenced rubric, student and teacher guidance, and structured preparation materials. The project focused on audience adaptation, constructive alignment and transparent assessment.",
+        focus: ["Assessment Design", "Technical Communication", "Constructive Alignment"]
       },
       {
         title: "English Skills for Business Students — Employability-Focused Learning Design",
