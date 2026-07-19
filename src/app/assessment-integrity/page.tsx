@@ -78,7 +78,7 @@ const practiceGroups: { title: string; items: PracticeItem[] }[] = [
     ]
   },
   {
-    title: "Teaching & Assessment Artefacts",
+    title: "Selected Project Artefacts",
     items: [
       { title: "Assessment Brief Extract" },
       { title: "Rubric Extract" },
