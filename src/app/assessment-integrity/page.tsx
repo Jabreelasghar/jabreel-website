@@ -56,6 +56,7 @@ const practiceGroups: { title: string; items: PracticeItem[] }[] = [
       },
       {
         title: "Professional Writing — Learning and Assessment Materials",
+        href: "/assessment-integrity/projects/professional-writing-learning-assessment-materials",
         description:
           "Developed learning resources and assessment activities to support professional writing, audience awareness, and workplace communication across higher education contexts.",
         focus: ["Professional Writing", "Assessment", "Learning Resources"]

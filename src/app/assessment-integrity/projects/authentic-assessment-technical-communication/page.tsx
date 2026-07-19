@@ -80,7 +80,7 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
           <SectionHeader
             eyebrow="Professional Practice Project"
             title="Authentic Assessment Design for Technical Communication"
-            summary="A complete assessment package developed for the Technical English (GED-200) course, including assessment specification, rubric, teacher guidance, student support materials and implementation resources."
+            summary="An integrated assessment package developed for the Technical English (GED-200) course, including assessment design, learning resources and implementation guidance."
           />
           <p className="mt-6 max-w-4xl text-base leading-7 text-slate">
             This project documents the design of an integrated assessment package for a Technical English course for IT students. Students were required to explain an IT-related topic to a non-technical audience through a short video-recorded presentation, followed by an online discussion activity that extended learning beyond the presentation itself. The project demonstrates how constructive alignment, authentic communication tasks, transparent assessment criteria and structured learner support can be combined within a single assessment design.
@@ -95,7 +95,7 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
               <h2 className="font-serif text-3xl font-semibold text-oxford">Project Overview</h2>
               <h3 className="mt-5 text-lg font-semibold text-oxford">Context</h3>
               <p className="mt-3 text-base leading-7 text-slate">
-                The Technical English course aimed to develop students&apos; ability to communicate technical concepts clearly to audiences with limited technical knowledge. Rather than assessing technical knowledge alone, the assessment focused on students&apos; ability to adapt specialist information for non-specialists while using appropriate technical terminology accurately.
+                The project was developed for a Technical English course that required students to communicate specialist IT concepts to non-technical audiences. Rather than assessing technical knowledge alone, the assessment focused on students&apos; ability to adapt specialist information for non-specialists while using appropriate technical terminology accurately.
               </p>
             </section>
 
@@ -177,8 +177,24 @@ export default function AuthenticAssessmentTechnicalCommunicationPage() {
             </ProjectSection>
 
             <ProjectSection title="Reflection">
-              <p>This project reinforced the importance of designing assessment as an integrated learning system rather than a standalone task. Student performance is influenced not only by the assessment itself but also by the quality of guidance, transparency of expectations and alignment between learning activities and assessment criteria. The project demonstrated how structured support materials can improve assessment consistency while helping students develop communication skills that extend beyond the classroom.</p>
+              <p>This project reinforced the importance of designing assessment as an integrated learning system rather than a standalone task. Student performance is influenced by the quality of guidance, transparency of expectations and alignment between learning activities and assessment criteria. The project demonstrated how structured support materials can improve assessment consistency while helping students develop communication skills that extend beyond the classroom.</p>
               <p>The experience also reinforced that effective assessment design extends beyond writing a task or rubric. It involves creating an integrated assessment system that enables both students and teachers to understand expectations, prepare effectively and apply assessment criteria consistently.</p>
+            </ProjectSection>
+
+            <ProjectSection title="Professional Learning">
+              <p>The project contributed to my later work in assessment integrity, assessment transparency and AI-aware assessment design.</p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  "Demonstrated the value of constructive alignment in assessment design.",
+                  "Reinforced the importance of explicit learner guidance for authentic assessment.",
+                  "Highlighted how supporting resources contribute to consistency and transparency.",
+                  "Informed later work on assessment integrity and AI-aware assessment design."
+                ].map((learning) => (
+                  <div key={learning} className="rounded-sm border border-line bg-ivory px-4 py-3 text-sm leading-6 text-slate">
+                    {learning}
+                  </div>
+                ))}
+              </div>
             </ProjectSection>
 
             <ProjectSection title="Related Case Study">
