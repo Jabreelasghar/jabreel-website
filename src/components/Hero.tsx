@@ -7,13 +7,16 @@ export function Hero() {
       <Container className="grid gap-8 py-9 lg:grid-cols-[minmax(0,3fr)_minmax(22rem,2fr)] lg:items-center lg:py-10">
         <div className="max-w-[720px]">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-moss">Dr Jabreel Asghar</p>
-          <h1 className="mt-4 font-serif text-[2rem] font-semibold leading-tight text-oxford sm:text-[2.65rem] lg:text-[2.65rem]">
-            Assessment Quality • Responsible AI • Higher Education
+          <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-oxford">
+            Higher Education
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate">
-            I am a university lecturer and higher-education researcher specialising in academic communication,
-            assessment, educational quality, and responsible AI. My work combines teaching, assessment practice, applied
-            research, and practical frameworks that support students, educators, and higher-education institutions.
+          <h2 className="mt-3 font-serif text-2xl font-semibold leading-tight text-oxford">
+            Assessment Quality • Responsible AI
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-slate">
+            I research and develop practical approaches to assessment quality, responsible AI, and academic communication
+            in higher education. My work brings together educational research, assessment practice, and evidence-informed
+            frameworks that support educators, students, and higher education institutions.
           </p>
           <div className="mt-4 flex max-w-2xl flex-wrap gap-x-4 gap-y-2 text-xs font-medium uppercase tracking-[0.1em] text-slate">
             {["University Lecturer", "Fellow of Advance HE (FHEA)", "Applied Linguistics", "Assessment Quality", "Responsible AI"].map(
