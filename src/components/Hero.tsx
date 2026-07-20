@@ -7,7 +7,7 @@ export function Hero() {
       <Container className="grid gap-8 py-9 lg:grid-cols-[minmax(0,3fr)_minmax(22rem,2fr)] lg:items-center lg:py-10">
         <div className="max-w-[720px]">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-moss">Dr Jabreel Asghar</p>
-          <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-oxford">
+          <h1 className="mt-4 font-serif text-[2.125rem] font-semibold leading-tight text-oxford">
             Higher Education
           </h1>
           <h2 className="mt-5 font-serif text-xl font-semibold leading-tight text-oxford">
@@ -15,11 +15,11 @@ export function Hero() {
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-7 text-slate">
             I research assessment quality, responsible AI, and academic communication in higher education. My work
-            combines educational research, assessment practice, and practical frameworks that support educators,
-            students, and institutions.
+            combines educational research, assessment practice, and practical frameworks that support learning,
+            educators, and institutions.
           </p>
           <div className="mt-4 flex max-w-2xl flex-wrap gap-x-4 gap-y-2 text-xs font-medium uppercase tracking-[0.1em] text-slate">
-            {["University Lecturer", "Fellow of Advance HE (FHEA)", "Applied Linguistics", "Assessment Quality", "Responsible AI"].map(
+            {["Assessment Quality", "Responsible AI", "Fellow of Advance HE (FHEA)", "Applied Linguistics", "University Lecturer"].map(
               (item) => (
                 <span key={item} className="before:mr-2 before:text-moss before:content-['•']">
                   {item}
