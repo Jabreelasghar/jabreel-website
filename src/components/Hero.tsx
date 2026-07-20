@@ -10,13 +10,13 @@ export function Hero() {
           <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-oxford">
             Higher Education
           </h1>
-          <h2 className="mt-3 font-serif text-2xl font-semibold leading-tight text-oxford">
+          <h2 className="mt-5 font-serif text-xl font-semibold leading-tight text-oxford">
             Assessment Quality • Responsible AI
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-7 text-slate">
-            I research and develop practical approaches to assessment quality, responsible AI, and academic communication
-            in higher education. My work brings together educational research, assessment practice, and evidence-informed
-            frameworks that support educators, students, and higher education institutions.
+            I research assessment quality, responsible AI, and academic communication in higher education. My work
+            combines educational research, assessment practice, and practical frameworks that support educators,
+            students, and institutions.
           </p>
           <div className="mt-4 flex max-w-2xl flex-wrap gap-x-4 gap-y-2 text-xs font-medium uppercase tracking-[0.1em] text-slate">
             {["University Lecturer", "Fellow of Advance HE (FHEA)", "Applied Linguistics", "Assessment Quality", "Responsible AI"].map(
@@ -41,10 +41,6 @@ export function Hero() {
           <div className="mt-3 divide-y divide-line">
             {[
               [
-                "Teaching and Academic Communication",
-                "Teaching, English for Academic Purposes, academic writing, student learning, and multilingual higher education."
-              ],
-              [
                 "Assessment and Educational Quality",
                 "Assessment design, rubric development, standardisation, verification, feedback, and quality enhancement."
               ],
@@ -55,6 +51,10 @@ export function Hero() {
               [
                 "Research and Evidence",
                 "Applied linguistics, discourse analysis, higher education, and AI-assisted academic writing."
+              ],
+              [
+                "Teaching and Academic Communication",
+                "Teaching, English for Academic Purposes, academic writing, student learning, and multilingual higher education."
               ]
             ].map(([title, text], index) => (
               <div key={title} className="grid grid-cols-[2.1rem_1fr] gap-3 py-2.5 first:pt-0 last:pb-0">
