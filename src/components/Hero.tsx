@@ -8,7 +8,7 @@ export function Hero() {
         <div className="max-w-[720px]">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-moss">Dr Jabreel Asghar</p>
           <h1 className="mt-4 font-serif text-[2rem] font-semibold leading-tight text-oxford sm:text-[2.65rem] lg:text-[2.65rem]">
-            Higher Education Teaching, Assessment Quality, and Responsible AI
+            Assessment Quality • Responsible AI • Higher Education
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-slate">
             I am a university lecturer and higher-education researcher specialising in academic communication,
