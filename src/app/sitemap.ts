@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/assessment-integrity", "monthly", 0.9], ["/ai-governance", "monthly", 0.9],
     ["/resources", "monthly", 0.9], ["/publications", "monthly", 0.9],
     ["/insights", "weekly", 0.9], ["/contact", "yearly", 0.5],
+    ["/insights/what-counts-as-learning-in-the-age-of-ai", "monthly", 0.7],
     ["/creative-writing", "monthly", 0.8], ["/educational-quality", "monthly", 0.8],
     ["/speaking-workshops", "monthly", 0.8],
     ["/assessment-integrity/ai-supported-reading-practice", "yearly", 0.7],

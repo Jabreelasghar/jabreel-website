@@ -79,10 +79,13 @@ export default function HomePage() {
           />
           <article className="border-y border-line py-5">
             <p className="max-w-3xl text-sm leading-6 text-slate">
-              The first editorial will be published soon. Planned topics are listed in the Insights section as
-              forthcoming editorials until complete versions are approved for publication.
+              The first editorial in the series, “What Counts in the Age of AI?”, examines how generative AI is changing
+              assumptions about learning, authorship, judgement, and assessment.
             </p>
-            <Link className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/insights">
+            <Link className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/insights/what-counts-as-learning-in-the-age-of-ai">
+              Read the first editorial
+            </Link>
+            <Link className="ml-5 mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/insights">
               View Insights
             </Link>
           </article>
