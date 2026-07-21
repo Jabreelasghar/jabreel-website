@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { VercelAnalytics } from "@/components/analytics/VercelAnalytics";
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main>{children}</main>
         <Footer />
+        <VercelAnalytics />
       </body>
     </html>
   );
