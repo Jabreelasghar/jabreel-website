@@ -1,13 +1,23 @@
 {
+  "editorials": [
+{
   "category": "Editorial",
   "series": "What Counts in the Age of AI?",
+  "seriesNumber": 1,
+  "seriesTotal": 10,
+  "slug": "what-counts-as-learning-in-the-age-of-ai",
+  "status": "published",
   "title": "What Counts as Learning in the Age of AI?",
   "subtitle": "Why higher education must rethink evidence, authorship, and assessment.",
-  "author": "Jabreel Asghar",
-  "date": "2026-07-21",
+  "authorDisplayName": "Dr Jabreel Asghar",
+  "citationAuthor": "Asghar, J.",
+  "publicationDate": "2026-07-21",
+  "publicationYear": 2026,
   "displayDate": "21 July 2026",
   "description": "An editorial examining how generative AI is changing evidence of learning, authorship, judgement, and assessment in higher education.",
   "pdf": "/downloads/insights/what-counts-as-learning-in-the-age-of-ai.pdf",
+  "canonicalUrl": "https://jabreelasghar-website.vercel.app/insights/what-counts-as-learning-in-the-age-of-ai",
+  "about": "This editorial is the first in the ten-part series What Counts in the Age of AI?, which examines how generative AI is reshaping learning, institutional response, authorship, teaching, expertise, assessment, critical thinking, creativity, trust, and what remains distinctively human in higher education.",
   "paragraphs": [
     "The other day, I proudly showed my 12-year-old daughter a website I had designed with the help of an AI coding assistant. She adamantly rejected it as my work. Her academic training has taught her that working with AI tools is discouraged, even though she has been using AI effectively to understand complex concepts across the curriculum. At work, I have frequently heard people refer to AI use as if it were something to be concealed rather than acknowledged. Public debates also often frame AI as a competitor to human intelligence rather than as a catalyst for reconsidering how intelligence is demonstrated and assessed.",
     "Every major educational technology has been greeted with predictions of decline. Plato worried that writing itself would weaken memory. The printing press was initially accused of encouraging superficial knowledge and weakening memory and oral scholarship. Calculators were going to destroy arithmetic skills. The rise of internet search prompted concerns about superficial learning, declining memory, and plagiarism. Most recently, the use of AI has raised questions about the authorship, assessment, and legitimacy of work.",
@@ -22,5 +32,79 @@
     "The mistake is not using AI. The mistake is assuming that assessment designed for a pre-AI world can still measure learning in the same way. Universities have spent the past several years asking whether students should use AI. History suggests a different question: which aspects of intellectual work can responsibly be delegated, and which must remain demonstrably human?",
     "The future of assessment depends not on prohibiting assistance, but on defining the boundary between assistance and judgement.",
     "Returning to my daughter's reaction to the AI-assisted website I built, we can see how education's ambivalent relationship with AI shapes students' understanding of authorship. My daughter readily uses AI to learn, yet instinctively believes that AI-assisted work is less authentically authored. That paradox captures today's educational culture. Every transformative educational technology changes not only how people learn, but also what institutions must accept as credible evidence of learning."
+  ]
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 2,
+  "seriesTotal": 10,
+  "slug": "why-universities-cannot-adapt-to-ai-overnight",
+  "status": "forthcoming",
+  "title": "Why Universities Cannot Adapt to AI Overnight"
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 3,
+  "seriesTotal": 10,
+  "slug": "ai-didnt-break-authorship-it-exposed-it",
+  "status": "forthcoming",
+  "title": "AI Didn’t Break Authorship—It Exposed It"
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 4,
+  "seriesTotal": 10,
+  "slug": "what-counts-as-teaching-in-the-age-of-ai",
+  "status": "forthcoming",
+  "title": "What Counts as Teaching in the Age of AI?"
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 5,
+  "seriesTotal": 10,
+  "slug": "what-counts-as-expertise-in-the-age-of-ai",
+  "status": "forthcoming",
+  "title": "What Counts as Expertise in the Age of AI?"
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 6,
+  "seriesTotal": 10,
+  "slug": "what-counts-as-assessment-in-the-age-of-ai",
+  "status": "forthcoming",
+  "title": "What Counts as Assessment in the Age of AI?"
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 7,
+  "seriesTotal": 10,
+  "slug": "what-counts-as-critical-thinking-in-the-age-of-ai",
+  "status": "forthcoming",
+  "title": "What Counts as Critical Thinking in the Age of AI?"
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 8,
+  "seriesTotal": 10,
+  "slug": "what-counts-as-creativity-in-the-age-of-ai",
+  "status": "forthcoming",
+  "title": "What Counts as Creativity in the Age of AI?"
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 9,
+  "seriesTotal": 10,
+  "slug": "what-counts-as-trust-in-the-age-of-ai",
+  "status": "forthcoming",
+  "title": "What Counts as Trust in the Age of AI?"
+},
+{
+  "series": "What Counts in the Age of AI?",
+  "seriesNumber": 10,
+  "seriesTotal": 10,
+  "slug": "what-counts-as-being-human-in-the-age-of-ai",
+  "status": "forthcoming",
+  "title": "What Counts as Being Human in the Age of AI?"
+}
   ]
 }

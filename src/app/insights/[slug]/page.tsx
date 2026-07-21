@@ -4,8 +4,10 @@ import path from "node:path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
+import { EditorialPage } from "@/components/editorials/EditorialPage";
 import { MarkdownBody } from "@/lib/markdown";
 import { getContent, getContentItem } from "@/lib/content";
+import { createEditorialMetadata, editorials, getPublishedEditorial } from "@/lib/editorials";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -16,11 +18,18 @@ function publicFileExists(href?: string) {
 }
 
 export function generateStaticParams() {
-  return getContent("insight").map((item) => ({ slug: item.slug }));
+  const contentSlugs = getContent("insight").map((item) => item.slug);
+  const editorialSlugs = editorials
+    .filter((item) => item.status === "published" && item.slug !== "what-counts-as-learning-in-the-age-of-ai")
+    .map((item) => item.slug);
+
+  return [...new Set([...contentSlugs, ...editorialSlugs])].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
+  const editorial = getPublishedEditorial(slug);
+  if (editorial) return createEditorialMetadata(editorial);
   const item = getContentItem("insight", slug);
   return {
     title: item?.title ?? "Insight",
@@ -42,6 +51,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function InsightDetailPage({ params }: Params) {
   const { slug } = await params;
+  const editorial = getPublishedEditorial(slug);
+  if (editorial) return <EditorialPage editorial={editorial} />;
   const item = getContentItem("insight", slug);
 
   if (!item) notFound();

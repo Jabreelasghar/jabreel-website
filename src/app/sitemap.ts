@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getContent } from "@/lib/content";
+import { editorials } from "@/lib/editorials";
 import { SITE_URL } from "@/lib/seo";
 
 const stableDate = new Date("2026-07-19");
@@ -10,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/assessment-integrity", "monthly", 0.9], ["/ai-governance", "monthly", 0.9],
     ["/resources", "monthly", 0.9], ["/publications", "monthly", 0.9],
     ["/insights", "weekly", 0.9], ["/contact", "yearly", 0.5],
-    ["/insights/what-counts-as-learning-in-the-age-of-ai", "monthly", 0.7],
     ["/creative-writing", "monthly", 0.8], ["/educational-quality", "monthly", 0.8],
     ["/speaking-workshops", "monthly", 0.8],
     ["/assessment-integrity/ai-supported-reading-practice", "yearly", 0.7],
@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}${path}`, lastModified: stableDate, changeFrequency, priority
   }));
   const dynamic = [
+    ...editorials.filter((item) => item.status === "published").map((item) => [`/insights/${item.slug}`, item.publicationDate]),
     ...getContent("publication").map((item) => [`/publications/${item.slug}`, item.date ?? item.year]),
     ...getContent("insight").map((item) => [`/insights/${item.slug}`, item.date]),
     ...getContent("creativeWriting").map((item) => [`/creative-writing/${item.slug}`, item.date]),
