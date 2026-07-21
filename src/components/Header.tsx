@@ -6,6 +6,16 @@ import { useState } from "react";
 import { navigation, secondaryNavigation } from "@/lib/navigation";
 import { Container } from "./Container";
 
+function isActiveRoute(pathname: string, href: string) {
+  if (href === "/") return pathname === href;
+
+  if (href === "/resources" && (pathname === "/frameworks" || pathname.startsWith("/frameworks/"))) {
+    return true;
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -34,13 +44,13 @@ export function Header() {
         >
           <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-4">
             {navigation.map((item) => {
-              const active = pathname === item.href;
+              const active = isActiveRoute(pathname, item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`border-b px-1 py-2 text-sm font-medium transition ${
-                    active ? "border-moss text-oxford" : "border-transparent text-slate hover:border-line hover:text-oxford"
+                  className={`border-b-2 px-1 py-2 text-sm transition-colors duration-200 ${
+                    active ? "border-moss font-semibold text-oxford" : "border-transparent font-medium text-slate hover:border-line hover:text-oxford"
                   }`}
                   onClick={() => setOpen(false)}
                 >
@@ -49,13 +59,13 @@ export function Header() {
               );
             })}
             {secondaryNavigation.map((item) => {
-              const active = pathname === item.href;
+              const active = isActiveRoute(pathname, item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`border-b px-1 py-2 text-sm font-medium transition lg:hidden ${
-                    active ? "border-moss text-oxford" : "border-transparent text-slate hover:border-line hover:text-oxford"
+                  className={`border-b-2 px-1 py-2 text-sm transition-colors duration-200 lg:hidden ${
+                    active ? "border-moss font-semibold text-oxford" : "border-transparent font-medium text-slate hover:border-line hover:text-oxford"
                   }`}
                   onClick={() => setOpen(false)}
                 >
