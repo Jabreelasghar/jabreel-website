@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { EditorialCitation } from "@/components/editorials/EditorialCitation";
 import { EditorialReuseNotice } from "@/components/editorials/EditorialReuseNotice";
+import { ContinueConversation } from "@/components/editorials/ContinueConversation";
 import {
   type Editorial,
   getEditorialNeighbours,
@@ -79,6 +80,7 @@ export function EditorialPage({ editorial }: { editorial: Editorial }) {
             </section>
             <EditorialCitation editorial={editorial} />
             <EditorialReuseNotice editorial={editorial} />
+            <ContinueConversation editorial={editorial} />
             <EditorialSeriesNavigation editorial={editorial} />
             <Link className="mt-7 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/insights">Back to Insights</Link>
           </footer>

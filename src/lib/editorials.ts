@@ -23,6 +23,7 @@ export type Editorial = {
   about?: string;
   paragraphs?: string[];
   category?: string;
+  linkedinDiscussionUrl?: string;
 };
 
 export const editorials = (catalogue.editorials as Editorial[]).slice().sort(
