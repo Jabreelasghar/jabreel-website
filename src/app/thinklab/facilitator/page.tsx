@@ -4,6 +4,7 @@ import { getFacilitatorIdentity } from "@/lib/thinklab/facilitator-access";
 import { getResolvedThinkLabTemplateVersion } from "@/lib/thinklab/templates/registry";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { FacilitatorConsole } from "./facilitator-console";
+import { CreateSessionForm } from "./create-session-form";
 
 export const metadata: Metadata = {
   title: "Facilitator · ThinkLab™ Trust Lab",
@@ -22,7 +23,7 @@ export default async function FacilitatorPage({
   const supabase = await createSupabaseServerClient();
   let sessionQuery = supabase
     .from("thinklab_sessions")
-    .select("id, join_code, template_key, template_version, status, current_moment_id, delivery_mode")
+    .select("id, organisation_id, join_code, template_key, template_version, status, current_moment_id, delivery_mode")
     .eq("facilitator_id", identity.user.id)
     .order("created_at", { ascending: false });
   if (requestedSessionId) sessionQuery = sessionQuery.eq("id", requestedSessionId);
@@ -35,8 +36,19 @@ export default async function FacilitatorPage({
       <div className="min-h-screen bg-[#101b1d] px-6 text-[#e7ece8] grid place-items-center">
         <div className="max-w-xl border border-white/20 p-8">
           <p className="font-mono text-xs uppercase tracking-widest text-[#91a6a0]">ThinkLab Facilitator</p>
-          <h1 className="mt-5 text-4xl">No active session</h1>
-          <p className="mt-4 leading-7 text-[#b8c6c0]">Start or select an active ThinkLab session before opening the control room.</p>
+          <h1 className="mt-5 text-4xl">Create a session</h1>
+          <p className="mt-4 leading-7 text-[#b8c6c0]">
+            Start the Trust Lab on individual participant devices. The welcome
+            moment will be available immediately.
+          </p>
+          {identity.organisations.length ? (
+            <CreateSessionForm organisations={identity.organisations} />
+          ) : (
+            <p role="alert" className="mt-8 text-sm text-[#f1a484]">
+              No eligible organization membership is available. Ask an
+              organization administrator to activate your facilitator access.
+            </p>
+          )}
         </div>
       </div>
     );
@@ -69,7 +81,11 @@ export default async function FacilitatorPage({
   return (
     <FacilitatorConsole
       facilitatorName={identity.user.user_metadata?.display_name ?? identity.user.email ?? "Facilitator"}
-      organisationName={identity.organisation?.name}
+      organisationName={
+        identity.organisations.find(
+          organisation => organisation.id === session.organisation_id
+        )?.name
+      }
       initialSession={session}
       template={template}
       initialParticipants={participants ?? []}

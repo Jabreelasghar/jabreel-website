@@ -17,23 +17,29 @@ export async function getFacilitatorIdentity() {
 
   const { data: memberships, error: membershipError } = await supabase
     .from("organisation_memberships")
-    .select("id, organisation_id, role, organisations(id, name, slug)")
+    .select(
+      "id, organisation_id, role, organisations!inner(id, name, slug, status)"
+    )
     .eq("profile_id", user.id)
-    .eq("role", "facilitator")
+    .in("role", ["facilitator", "organisation_administrator"])
     .eq("status", "active")
-    .limit(1);
+    .eq("organisations.status", "active")
+    .order("created_at");
 
-  if (membershipError || !memberships?.length) return null;
+  if (membershipError) return null;
 
-  const organisations = memberships[0].organisations as unknown as
-    | { id: string; name: string; slug: string }
-    | { id: string; name: string; slug: string }[]
-    | null;
-  const organisation = Array.isArray(organisations) ? organisations[0] : organisations;
+  const eligibleOrganisations = (memberships ?? []).flatMap(membership => {
+    const organisations = membership.organisations as unknown as
+      | { id: string; name: string; slug: string; status: "active" }
+      | { id: string; name: string; slug: string; status: "active" }[]
+      | null;
+    return organisations ? (Array.isArray(organisations) ? organisations : [organisations]) : [];
+  });
 
   return {
     user,
-    membership: memberships[0],
-    organisation
+    memberships: memberships ?? [],
+    organisations: eligibleOrganisations,
+    organisation: eligibleOrganisations[0]
   };
 }

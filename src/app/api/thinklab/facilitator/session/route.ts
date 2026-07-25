@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     .from("organisation_memberships")
     .select("id")
     .eq("profile_id", data.user.id)
-    .eq("role", "facilitator")
+    .in("role", ["facilitator", "organisation_administrator"])
     .eq("status", "active")
     .limit(1)
     .maybeSingle();
