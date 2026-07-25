@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import type { ResolvedThinkLabMoment } from "@/lib/thinklab/templates/registry";
+import { DecisionContextPanel } from "../../participant-moment-content";
 import styles from "../../thinklab.module.css";
 import stageCStyles from "../../stage-c.module.css";
 
@@ -192,10 +193,20 @@ export function LiveParticipantExperience({
     };
   }, [loadCanonical, recoveryKey, sendMoment, session.id, supabase]);
 
+  useEffect(() => {
+    const canonicalRefresh = window.setInterval(() => {
+      if (navigator.onLine) void loadCanonical();
+    }, 3000);
+    return () => window.clearInterval(canonicalRefresh);
+  }, [loadCanonical]);
+
   const stage = template.moments[stageIndex];
   const payload = drafts[stage.id] ?? {};
   const response = responses[stage.id];
   const locked = Boolean(response?.initial_locked_payload || response?.status === "locked");
+  const releaseStatus = releases.find((item) => item.moment_id === stage.id)?.status;
+  const momentOpen = releaseStatus === "released" || releaseStatus === "reopened";
+  const requiresChoiceLock = stage.id === "cards" && stage.maxChoices === 2;
   const choices = payload.choices ?? [];
   const texts = payload.texts ?? [];
   const releasedIds = new Set(
@@ -209,10 +220,11 @@ export function LiveParticipantExperience({
   const canContinue = stage.id === "welcome" ? Boolean(texts[0]?.trim()) :
     stage.id === "rules" ? choices.length === 3 :
     stage.id === "reflection" ? stage.prompts.every((_, index) => texts[index]?.trim()) :
+    requiresChoiceLock ? choices.length === 2 :
     stage.options.length > 0 && stage.prompts.length === 0 ? choices.length > 0 : true;
 
   function updatePayload(nextPayload: Payload) {
-    if (locked) return;
+    if (locked || !momentOpen || session.status === "ended") return;
     setDrafts((current) => ({ ...current, [stage.id]: nextPayload }));
     setSaveStates((state) => ({ ...state, [stage.id]: "saving" }));
     writeRecoveryDraft(recoveryKey, stage.id, {
@@ -286,10 +298,15 @@ export function LiveParticipantExperience({
           <div className={styles.stageLabel}><span>{stage.section}</span><span>Instrument {String(stageIndex + 1).padStart(2, "0")}</span></div>
           <h1>{stage.title}</h1>
           {stage.taskInstructions && <p className={styles.instruction}>{stage.taskInstructions}</p>}
+          <DecisionContextPanel
+            currentMoment={stage}
+            moments={template.moments}
+            responses={responses}
+          />
           {stage.sourceMaterial && <div className={styles.source}>{stage.sourceMaterial.split("\n").map((line, index) => <p key={index}>{line}</p>)}</div>}
           {stage.options.length > 0 && <div className={styles.choices}>{stage.options.map((option) => {
             const selected = choices.includes(option);
-            return <button key={option} type="button" data-selected={selected} disabled={locked || session.status === "ended"} onClick={() => {
+            return <button key={option} type="button" data-selected={selected} disabled={locked || !momentOpen || session.status === "ended"} onClick={() => {
               const limit = stage.maxChoices ?? 1;
               const next = selected ? choices.filter((item) => item !== option) :
                 limit === 1 ? [option] : choices.length < limit ? [...choices, option] : choices;
@@ -297,18 +314,19 @@ export function LiveParticipantExperience({
             }}><i>{selected ? "✓" : ""}</i><span>{option}</span></button>;
           })}</div>}
           {stage.prompts.length > 0 && <div className={styles.fields}>{stage.prompts.map((prompt, index) =>
-            <label key={`${stage.id}-${index}`}><span>{prompt}</span><textarea value={texts[index] ?? ""} disabled={locked || session.status === "ended"} onChange={(event) => {
+            <label key={`${stage.id}-${index}`}><span>{prompt}</span><textarea value={texts[index] ?? ""} disabled={locked || !momentOpen || session.status === "ended"} onChange={(event) => {
               const next = [...texts]; next[index] = event.target.value;
               updatePayload({ ...payload, texts: next });
             }} /></label>
           )}</div>}
-          {stage.confidenceScale && <label className={styles.confidenceControl}><span>Confidence in this judgement</span><input type="range" min="1" max="5" disabled={locked || session.status === "ended"} value={payload.confidence ?? 3} onChange={(event) => updatePayload({ ...payload, confidence: Number(event.target.value) })} /><b>{payload.confidence ?? 3} / 5</b></label>}
+          {stage.confidenceScale && <label className={styles.confidenceControl}><span>Confidence in this judgement</span><input type="range" min="1" max="5" disabled={locked || !momentOpen || session.status === "ended"} value={payload.confidence ?? 3} onChange={(event) => updatePayload({ ...payload, confidence: Number(event.target.value) })} /><b>{payload.confidence ?? 3} / 5</b></label>}
           {stage.notice && <div className={styles.notice}><b>NOTICE</b><p>{stage.notice}</p></div>}
           {stage.principle && <div className={styles.principle}>{stage.principle}</div>}
           <div className={styles.stageActions}>
             <SaveIndicator state={saveState} retry={() => void saveMoment(stage.id, payload)} />
-            {locked ? <div className={styles.waiting}>Judgement locked</div> :
-              stage.lockResponse ? <button className={styles.commit} onClick={() => void lockInitialJudgement()} disabled={!canContinue || saveState === "saving"}>Lock initial judgement</button> :
+            {locked ? <div className={styles.waiting}>{requiresChoiceLock ? "Two evidence cards locked" : "Judgement locked"}</div> :
+              !momentOpen ? <div className={styles.waiting}>This moment is closed</div> :
+              stage.lockResponse || requiresChoiceLock ? <button className={styles.commit} onClick={() => void lockInitialJudgement()} disabled={!canContinue || saveState === "saving"}>{requiresChoiceLock ? "Confirm and lock two cards" : "Lock initial judgement"}</button> :
               stageIndex < furthestReleased ? <button className={styles.commit} onClick={() => void moveToMoment(stageIndex + 1)} disabled={!canContinue}>Continue</button> :
               <div className={styles.waiting}><i />{session.status === "paused" ? "Session paused by facilitator" : "Waiting for facilitator"}</div>}
           </div>
