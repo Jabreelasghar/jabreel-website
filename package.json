@@ -6,9 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "test:db": "supabase test db",
+    "seed:thinklab": "node scripts/seed-thinklab-milestone1.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.3",
+    "@supabase/supabase-js": "^2.110.8",
     "@vercel/analytics": "^2.0.1",
     "next": "15.3.8",
     "react": "19.0.0",
@@ -22,6 +29,7 @@
     "eslint": "^9.17.0",
     "eslint-config-next": "15.3.5",
     "postcss": "^8.4.49",
+    "supabase": "^2.109.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   }

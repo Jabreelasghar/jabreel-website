@@ -1,0 +1,28 @@
+project_id = "thinklab-platform"
+
+[api]
+enabled = true
+port = 55001
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 55002
+shadow_port = 55000
+major_version = 15
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[studio]
+enabled = true
+port = 55003
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/thinklab/facilitator"]
+enable_signup = false
+enable_anonymous_sign_ins = true

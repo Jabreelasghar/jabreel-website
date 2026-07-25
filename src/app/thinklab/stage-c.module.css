@@ -1,0 +1,42 @@
+.joinForm {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+}
+
+.joinForm label {
+  margin-top: 12px;
+}
+
+.joinForm input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.joinForm button {
+  min-height: 54px;
+  margin-top: 18px;
+}
+
+.connectionNotice {
+  background: #c36b3c;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  font: 11px Consolas, monospace;
+  letter-spacing: .04em;
+}
+
+.retrySave {
+  border: 0 !important;
+  background: transparent !important;
+  color: #9a452b !important;
+  padding: 0 !important;
+  text-decoration: underline;
+  font: 10px Consolas, monospace !important;
+}
+
+.retrySave:focus-visible {
+  outline: 3px solid #c36b3c;
+  outline-offset: 3px;
+}

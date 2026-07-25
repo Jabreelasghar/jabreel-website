@@ -26,6 +26,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+body.thinklab-mode > header,
+body.thinklab-mode > footer {
+  display: none;
+}
+
 ::selection {
   background: rgb(47 111 106 / 18%);
 }
