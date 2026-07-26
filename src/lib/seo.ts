@@ -9,7 +9,9 @@ export function createPageMetadata({
   path,
   type = "website",
   absoluteTitle = false,
-  publishedTime
+  publishedTime,
+  authors,
+  keywords
 }: {
   title: string;
   description: string;
@@ -17,16 +19,20 @@ export function createPageMetadata({
   type?: "website" | "article";
   absoluteTitle?: boolean;
   publishedTime?: string;
+  authors?: string[];
+  keywords?: string[];
 }): Metadata {
   const common = { title, description, url: path, siteName: SITE_NAME, locale: "en_GB" };
 
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
+    keywords,
+    authors: authors?.map((name) => ({ name })),
     alternates: { canonical: path },
     openGraph:
       type === "article"
-        ? { ...common, type: "article", ...(publishedTime ? { publishedTime } : {}) }
+        ? { ...common, type: "article", ...(publishedTime ? { publishedTime } : {}), ...(authors ? { authors } : {}) }
         : { ...common, type: "website" }
   };
 }

@@ -11,7 +11,19 @@ export function CopyCitationButton({ citation }: { citation: string }) {
   }, []);
 
   async function copyCitation() {
-    await navigator.clipboard.writeText(citation);
+    try {
+      await navigator.clipboard.writeText(citation);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = citation;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      const copiedWithFallback = document.execCommand("copy");
+      textarea.remove();
+      if (!copiedWithFallback) return;
+    }
     setCopied(true);
     if (resetTimer.current) clearTimeout(resetTimer.current);
     resetTimer.current = setTimeout(() => setCopied(false), 2000);

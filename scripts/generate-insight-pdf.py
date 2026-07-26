@@ -96,7 +96,7 @@ def build_pdf(slug: str) -> Path:
         topMargin=25 * mm, bottomMargin=22 * mm,
         title=editorial["title"], author=editorial["authorDisplayName"],
         subject=editorial["description"],
-        keywords="generative AI, higher education, assessment, authorship, judgement, learning"
+        keywords=", ".join(editorial.get("keywords", ["generative AI", "higher education", "assessment"]))
     )
     styles = getSampleStyleSheet()
     label = ParagraphStyle("Label", parent=styles["Normal"], fontName="EditorialSans", fontSize=8.5, leading=12, textColor=colors.HexColor("#55705F"), spaceAfter=7)

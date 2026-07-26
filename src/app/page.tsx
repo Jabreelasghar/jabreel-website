@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getContent, getFeatured } from "@/lib/content";
+import { editorials } from "@/lib/editorials";
 import { createPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -12,6 +13,9 @@ export const metadata: Metadata = createPageMetadata({ title: "Dr Jabreel Asghar
 export default function HomePage() {
   const featuredPublications = getFeatured("publication", 3).filter((item) => item.featured);
   const creativeWriting = getContent("creativeWriting");
+  const latestEditorial = editorials
+    .filter((editorial) => editorial.status === "published")
+    .at(-1);
   const publicationMeta = (item: (typeof featuredPublications)[number]) =>
     [
       ["Status", item.status],
@@ -78,13 +82,16 @@ export default function HomePage() {
             summary="This section will publish evidence-informed editorials and commentary on AI in higher education, assessment integrity, academic writing, university teaching, and educational policy."
           />
           <article className="border-y border-line py-5">
-            <p className="max-w-3xl text-sm leading-6 text-slate">
-              The first editorial in the series, “What Counts in the Age of AI?”, examines how generative AI is changing
-              assumptions about learning, authorship, judgement, and assessment.
-            </p>
-            <Link className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/insights/what-counts-as-learning-in-the-age-of-ai">
-              Read the first editorial
-            </Link>
+            {latestEditorial ? (
+              <>
+                <p className="max-w-3xl text-sm leading-6 text-slate">
+                  The latest editorial in the series, “{latestEditorial.title}”, examines how generative AI is reshaping higher education.
+                </p>
+                <Link className="mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href={`/insights/${latestEditorial.slug}`}>
+                  Read the latest editorial
+                </Link>
+              </>
+            ) : null}
             <Link className="ml-5 mt-5 inline-block text-sm font-semibold text-moss hover:text-oxford" href="/insights">
               View Insights
             </Link>

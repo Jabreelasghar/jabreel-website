@@ -36,12 +36,33 @@
   ]
 },
 {
+  "category": "Editorial",
   "series": "What Counts in the Age of AI?",
   "seriesNumber": 2,
   "seriesTotal": 10,
   "slug": "why-universities-cannot-adapt-to-ai-overnight",
-  "status": "forthcoming",
-  "title": "Why Universities Cannot Adapt to AI Overnight"
+  "status": "published",
+  "title": "Why Universities Cannot Adapt to AI Overnight",
+  "subtitle": "Why universities cannot adapt to generative AI through isolated policies or tools, and why meaningful change requires rethinking assessment, academic practice, quality systems, and institutional culture.",
+  "authorDisplayName": "Dr Jabreel Asghar",
+  "citationAuthor": "Asghar, J.",
+  "publicationDate": "2026-07-27",
+  "publicationYear": 2026,
+  "displayDate": "27 July 2026",
+  "description": "Universities have moved rapidly from viewing generative AI as an opportunity to treating it as an institutional problem. This editorial examines why meaningful adaptation requires more than new tools or policies: it requires changes to assessment, professional practice, academic identity, quality assurance, and institutional systems.",
+  "keywords": ["generative AI", "higher education", "institutional change", "assessment", "academic quality", "faculty development", "responsible AI", "educational policy"],
+  "pdf": "/downloads/insights/why-universities-cannot-adapt-to-ai-overnight.pdf",
+  "canonicalUrl": "https://jabreelasghar-website.vercel.app/insights/why-universities-cannot-adapt-to-ai-overnight",
+  "about": "This editorial examines why universities cannot respond to generative AI through isolated policy changes, software tools, or short-term training alone. It argues that adaptation requires institutions to reconsider assessment, academic practice, quality systems, professional identity, and the organisational conditions through which educational change occurs.",
+  "paragraphs": [
+    "I remember receiving an email at work about Chat GPT a few years ago to gauge the faculty awareness of the tool. The purpose was to formally introduce the tool and enthusiastically encourage its use with careful precautions. Just over 3 years later, I see colleagues frustrated with students’ utter reliance on AI even in simple class tasks. Ironically, the faculty also receive official emails to avoid AI-generated texts for internal faculty competitions. Within a few years, AI had moved from institutional opportunity to institutional problem.",
+    "Innovation does not make all efforts insufficient; it exposes limitations in them. The challenge is not merely technological. It is simultaneously logistical, pedagogical, and professional. Imagine spending decades refining an assessment system with thousands of rubrics, hundreds of faculty development hours, lengthy procedures of accreditation, quality assurance and external moderation. AI doesn't just create practical concerns; it also challenges professional identity by questioning long-held assumptions about what it means to teach, assess, and develop expertise. Faculty genuinely worry about fairness, learning, academic integrity and workload.",
+    "It is obvious that universities are not merely resisting AI because they fear it. They are protecting decades of investment in assessment systems, quality assurance processes and staff development. They are also confronting challenges to long-established assumptions about what it means to teach, assess and earn a qualification. Should universities redesign the entire system, or first try to fit the new technology into the old framework? Institutions naturally attempt to accommodate disruptive technologies within existing structures before redesigning those structures themselves. However, past investments constrain future choices. Therefore, institutional inertia is rational because universities are behaving like almost every large organisation.",
+    "Universities cannot use classrooms as laboratories to experiment with every new idea. They are built for continuity, not rapid disruption. Every untested change has consequences at scale. Historically, institutions first absorb new technologies into existing practices and later they redesign those practices. The issue of AI is different because it challenges the evidence on which assessment relies. Within two years, a technology appears that questions one of its basic assumptions—that a polished written assignment reliably demonstrates individual learning. That is why AI cannot be addressed simply by adding new policies to existing assessment systems.",
+    "Universities must encourage innovation while protecting the credibility of learning and qualifications. During technological disruption, those responsibilities pull in opposite directions. Universities are often criticised for moving slowly. But rapid change carries real risks when qualifications affect thousands of students. The challenge is therefore not simply changing faster. The challenge is to change carefully without defending assumptions that technology has already undermined.",
+    "The academic community has moved remarkably quickly from enthusiasm about AI to anxiety over its consequences. We need to acknowledge that the greatest obstacle to educational innovation is often not the technology itself. It is the institutional investment in yesterday's assumptions. The challenge is not to make universities change recklessly or defend the status quo indefinitely. It is to identify which institutional safeguards still protect learning and which now merely protect inherited assumptions.",
+    "This is the second editorial in an ongoing series on higher education and AI. My next editorial explores a question that has become increasingly difficult to answer: What Counts as Authorship in the Age of AI?"
+  ]
 },
 {
   "series": "What Counts in the Age of AI?",

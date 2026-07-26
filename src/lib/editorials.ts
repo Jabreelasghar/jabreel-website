@@ -18,6 +18,7 @@ export type Editorial = {
   publicationYear?: number;
   displayDate?: string;
   description?: string;
+  keywords?: string[];
   pdf?: string;
   canonicalUrl?: string;
   about?: string;
@@ -91,6 +92,8 @@ export function createEditorialMetadata(editorial: Editorial): Metadata {
     description: editorial.description ?? editorial.subtitle ?? editorial.title,
     path: `/insights/${editorial.slug}`,
     type: "article",
-    publishedTime: editorial.publicationDate
+    publishedTime: editorial.publicationDate,
+    authors: editorial.authorDisplayName ? [editorial.authorDisplayName] : undefined,
+    keywords: editorial.keywords
   });
 }
