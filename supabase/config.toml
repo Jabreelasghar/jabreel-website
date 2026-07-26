@@ -24,5 +24,16 @@ port = 55003
 enabled = true
 site_url = "http://localhost:3000"
 additional_redirect_urls = ["http://localhost:3000/thinklab/facilitator"]
-enable_signup = false
+enable_signup = true
 enable_anonymous_sign_ins = true
+
+[analytics]
+enabled = false
+port = 49127
+backend = "postgres"
+
+[inbucket]
+enabled = true
+port = 49124
+smtp_port = 49125
+pop3_port = 49126

@@ -50,9 +50,14 @@ export function JoinThinkLab() {
         JSON.stringify({ sessionId: result.session_id, participantId: result.participant_id })
       );
       router.replace(`/thinklab/session/${result.session_id}`);
-    } catch {
-      setError("That session is not available. Check the code and try again.");
-      setJoining(false);
+      } catch (error) {
+      console.error("ThinkLab join error:", error);
+
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError("Unable to join the session.");
+      }
     }
   }
 
