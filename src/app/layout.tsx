@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { SiteFrame } from "@/components/SiteFrame";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { VercelAnalytics } from "@/components/analytics/VercelAnalytics";
 
@@ -51,9 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
         />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <SiteFrame>{children}</SiteFrame>
         <VercelAnalytics />
       </body>
     </html>

@@ -49,6 +49,22 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <section className="border-b border-line bg-oxford text-white" aria-labelledby="thinklab-feature-title">
+        <Container className="py-8 sm:py-10">
+          <div className="relative overflow-hidden border border-white/15 bg-[radial-gradient(circle_at_86%_25%,rgba(116,87,217,0.32),transparent_28%),linear-gradient(135deg,#0b1029,#15133a)] p-6 sm:p-9">
+            <div aria-hidden="true" className="absolute -right-14 -top-20 h-64 w-64 rounded-full border border-teal-300/20 shadow-[0_0_0_45px_rgba(34,241,209,0.025),0_0_0_90px_rgba(154,107,255,0.025)]" />
+            <div className="relative max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22f1d1]">Featured initiative · Proposed pilot</p>
+              <h2 id="thinklab-feature-title" className="mt-3 text-3xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">ThinkLab™</h2>
+              <p className="mt-3 text-xl leading-snug text-white/90 sm:text-2xl">Developing Human Judgement in the Age of AI</p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/65">A research-informed methodology for making, explaining and revisiting consequential decisions. Proposed institution: Higher Colleges of Technology (pending approval).</p>
+              <Link className="mt-6 inline-flex items-center gap-3 rounded-sm bg-[#22f1d1] px-4 py-2.5 text-sm font-semibold text-[#071a1c] transition hover:bg-white focus-visible:ring-4 focus-visible:ring-[#22f1d1]/30" href="/thinklab">
+                Explore ThinkLab <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
       <section className="border-b border-line bg-paper">
         <Container className="py-8">
           <div className="grid border-y border-line md:grid-cols-3">
