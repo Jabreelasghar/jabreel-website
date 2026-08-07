@@ -65,12 +65,32 @@
   ]
 },
 {
+  "category": "Editorial",
   "series": "What Counts in the Age of AI?",
   "seriesNumber": 3,
   "seriesTotal": 10,
-  "slug": "ai-didnt-break-authorship-it-exposed-it",
-  "status": "forthcoming",
-  "title": "AI Didn’t Break Authorship—It Exposed It"
+  "slug": "what-counts-as-authorship-in-the-age-of-ai",
+  "status": "published",
+  "title": "What Counts as Authorship in the Age of AI?",
+  "subtitle": "Responsibility, judgement, and intellectual agency when writing is shared with AI.",
+  "authorDisplayName": "Dr Jabreel Asghar",
+  "citationAuthor": "Asghar, J.",
+  "publicationDate": "2026-08-07",
+  "publicationYear": 2026,
+  "displayDate": "7 August 2026",
+  "description": "An editorial examining how generative AI is reshaping authorship and why intellectual agency, judgement, transparency, and accountability matter more than who produced every sentence.",
+  "keywords": ["generative AI", "authorship", "AI-assisted writing", "academic writing", "responsible AI", "intellectual agency", "intellectual judgement", "accountability", "higher education", "AI disclosure"],
+  "pdf": "/downloads/insights/what-counts-as-authorship-in-the-age-of-ai.pdf",
+  "canonicalUrl": "https://jabreelasghar-website.vercel.app/insights/what-counts-as-authorship-in-the-age-of-ai",
+  "about": "This editorial examines how generative AI has made a long-standing distinction between writing and authorship more visible. It argues that authorship should be understood through responsibility rather than the mechanical production of text, and introduces the AI-Responsive Authorship Framework (ARAF) as a way of distinguishing intellectual agency, intellectual judgement, and accountability.",
+  "paragraphs": [
+    "Over the past two years, submitting a journal article has quietly acquired another routine step. Alongside declarations of funding, conflicts of interest and ethical approval, many publishers now ask authors to disclose whether generative AI assisted in preparing the manuscript. Academic writing has always been collaborative. Editors refine our prose. Reviewers reshape our arguments. Statisticians strengthen our analyses. Yet we rarely question who the author is. Why does AI suddenly make authorship seem uncertain?",
+    "On the contrary, it appears that AI has not broken authorship but merely exposed a misconception that already existed. We have always accepted human assistance, even technological assistance like typewriter, computer, word processor and data analytical software. Generative AI has brought many of these forms of assistance together in a single system, making questions of authorship far more visible.",
+    "Yet when AI assists with drafting, authorship suddenly becomes uncertain. That paradox suggests the issue has never been of assistance itself. For centuries, scholarly writing has involved different forms of human and technological support, yet the authorship of the work was rarely questioned. AI has simply shifted the debate from procedure to responsibility. The defining question is no longer who wrote every sentence, but who accepts responsibility for the ideas, evidence, arguments, and conclusions presented. Responsibility—not mere production—has always been the cornerstone of authorship.",
+    "An author is not simply the person who typed every word but the person who accepts responsibility for the claims, evidence and conclusions. Authorship is no longer defined by who produced every word. It is defined by who accepts responsibility for the knowledge those words communicate. Publishers now increasingly require statements such as AI cannot be listed as an author because it cannot take responsibility. They have not rejected AI authorship because AI generates text. They have rejected it because authorship carries obligations that extend beyond writing: responding to criticism, correcting errors, declaring conflicts of interest and accepting responsibility for knowledge claims.",
+    "To make this distinction clearer, I propose the AI-Responsive Authorship Framework (ARAF), which argues that legitimate authorship in the age of generative AI rests on three interconnected foundations: intellectual agency, intellectual judgement, and accountability. Together, these determine not who produced every sentence, but who can legitimately claim authorship of the work. The first foundation is intellectual agency—who decides what should be investigated? The second foundation is intellectual judgement—who decides what should be believed? The third foundation is accountability—who accepts responsibility? The framework also explains why AI declarations have become a routine part of scholarly publishing. Their purpose is not to admit guilt for using AI, but to preserve transparency by making responsibility visible.",
+    "AI has exposed the distinction between writing and authorship that was always there but rarely examined. This makes authorship more important than ever because responsibility becomes the only stable criterion once production is shared between humans and machines."
+  ]
 },
 {
   "series": "What Counts in the Age of AI?",
