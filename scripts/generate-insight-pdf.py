@@ -109,7 +109,11 @@ def build_pdf(slug: str) -> Path:
 
     story = [
         Spacer(1, 8 * mm),
-        Paragraph(f'{editorial.get("category", "Editorial").upper()} · {editorial["series"].upper()}', label),
+        Paragraph(
+            f'EDITORIAL SERIES · {editorial["series"].upper()} · '
+            f'PART {editorial["seriesNumber"]} OF {editorial["seriesTotal"]}',
+            label,
+        ),
         Paragraph(escape(editorial["title"]), title),
         Paragraph(escape(editorial["subtitle"]), subtitle),
         Paragraph(f'By {escape(editorial["authorDisplayName"])} · {escape(editorial["displayDate"])}', meta),
