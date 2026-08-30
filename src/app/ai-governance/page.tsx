@@ -53,6 +53,23 @@ const coreAreas: Card[] = [
 
 const progression = ["Research", "Frameworks", "Assessment Practice", "Institutional Guidance", "Professional Learning"];
 
+const heacProjects: Card[] = [
+  {
+    title: "HEAC-H",
+    description:
+      "Examines reflexive positioning and scholarly authority in human-authored higher-education writing. The manuscript has been submitted to the Journal of Further and Higher Education and is currently under consideration.",
+    href: "/publications/heac-h",
+    linkLabel: "View HEAC-H"
+  },
+  {
+    title: "HEAC-AI",
+    description:
+      "Compares authority, qualification and evidential responsibility in human-authored and AI-generated academic writing. The manuscript has been submitted to Social Sciences & Humanities Open and is currently under consideration.",
+    href: "/publications/heac-ai",
+    linkLabel: "View HEAC-AI"
+  }
+];
+
 const areasOfInquiry = [
   "Responsible AI in higher education",
   "AI and assessment integrity",
@@ -216,6 +233,10 @@ export default function AiGovernancePage() {
                 </li>
               ))}
             </ul>
+          </PageSection>
+
+          <PageSection title="HEAC Research Projects">
+            <CardGrid items={heacProjects} columns="md:grid-cols-2" />
           </PageSection>
 
           <PageSection title="Framework Collection">

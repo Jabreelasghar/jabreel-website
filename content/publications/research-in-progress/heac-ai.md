@@ -1,8 +1,8 @@
 ---
 title: "HEAC-AI"
 year: ""
-status: "In preparation"
-summary: ""
+status: "Manuscript submitted and currently under consideration"
+summary: "Compares authority, qualification and evidential responsibility in human-authored and AI-generated academic writing. The manuscript has been submitted to Social Sciences & Humanities Open and is currently under consideration."
 tags: []
 featured: false
 ---
@@ -50,7 +50,7 @@ It also provides evidence for designing oral verification and assessment practic
 
 ## Current Status
 
-The existing website status records this project as: **In preparation**. No publication venue, DOI, issue, page range, or acceptance status is included in the supplied source, so none has been added.
+The manuscript has been submitted to *Social Sciences & Humanities Open* and is currently under consideration. Its status is **manuscript submitted and currently under consideration**; it is not described as accepted, forthcoming, published, or under peer review.
 
 The public website title has been preserved as **HEAC-AI**. The supplied manuscript uses a longer working title, but the short project label has been retained for consistency with the Research in Progress section.
 

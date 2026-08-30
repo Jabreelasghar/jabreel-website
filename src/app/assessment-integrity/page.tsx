@@ -104,7 +104,7 @@ const publications = [
   },
   {
     title: "HEAC-AI",
-    description: "Research in preparation comparing scholarly authority in human-authored and AI-generated academic writing.",
+    description: "Compares authority, qualification and evidential responsibility in human-authored and AI-generated academic writing. The manuscript has been submitted to Social Sciences & Humanities Open and is currently under consideration.",
     href: "/publications/heac-ai"
   }
 ];

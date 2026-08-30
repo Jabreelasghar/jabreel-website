@@ -1,8 +1,8 @@
 ---
 title: "HEAC-H"
 year: ""
-status: "Under review"
-summary: ""
+status: "Manuscript submitted and currently under consideration"
+summary: "Examines reflexive positioning and scholarly authority in human-authored higher-education writing. The manuscript has been submitted to the Journal of Further and Higher Education and is currently under consideration."
 tags: []
 featured: false
 ---
@@ -51,7 +51,7 @@ The study is relevant to higher education research, critical discourse analysis,
 
 ## Current Status
 
-The existing website status records this project as: **Under review**. The supplied manuscript includes no DOI, publication issue, page range, or final published citation, so no publication metadata has been added.
+The manuscript has been submitted to the *Journal of Further and Higher Education* and is currently under consideration. Its status is **manuscript submitted and currently under consideration**; it is not described as accepted, forthcoming, published, or under peer review.
 
 The public website title has been preserved as **HEAC-H**. The supplied manuscript uses a longer working title, but the short project label has been retained to distinguish the human baseline study from HEAC-AI.
 
